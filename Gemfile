@@ -18,7 +18,9 @@ end
 
 gem 'jquery-rails'
 gem 'devise'
-
+gem 'activeadmin'
+gem 'meta_search', '>= 1.1.0.pre'
+gem 'thin'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
