@@ -11,7 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120120145811) do
+ActiveRecord::Schema.define(:version => 20120120151913) do
+
+  create_table "services", :force => true do |t|
+    t.string   "phone_number"
+    t.string   "address"
+    t.string   "image_url"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "services_weddings", :id => false, :force => true do |t|
+    t.integer "service_id"
+    t.integer "wedding_id"
+  end
+
+  add_index "services_weddings", ["service_id", "wedding_id"], :name => "index_services_weddings_on_service_id_and_wedding_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
@@ -39,5 +55,16 @@ ActiveRecord::Schema.define(:version => 20120120145811) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "weddings", :force => true do |t|
+    t.integer  "budget"
+    t.string   "place"
+    t.integer  "nb_person"
+    t.integer  "nb_child"
+    t.integer  "organizer_id"
+    t.integer  "client_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

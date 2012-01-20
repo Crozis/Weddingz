@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  budget: 
+  place: MyString
+  nb_person: 
+  nb_child: 
+  organizer_id: 
+  client_id: 
+
+two:
+  budget: 
+  place: MyString
+  nb_person: 
+  nb_child: 
+  organizer_id: 
+  client_id: 
