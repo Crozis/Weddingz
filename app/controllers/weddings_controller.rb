@@ -25,7 +25,7 @@ class WeddingsController < ApplicationController
   # GET /weddings/new.json
   def new
     @wedding = Wedding.new
-
+    @services = Service.all
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @wedding }
