@@ -5,10 +5,10 @@ Weddingz::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  resources :services
-
-  resources :weddings
-
+  resources :weddings do
+    resources :services    
+  end
+  
   devise_for :users
 
   # The priority is based upon order of creation:
