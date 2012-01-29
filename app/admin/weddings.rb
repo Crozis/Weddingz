@@ -1,7 +1,19 @@
 # encoding: utf-8
 ActiveAdmin.register Wedding do  
+
+  index do
+    column :name
+    column :place
+    column :budget
+    column :nb_person
+    column :nb_child
+    default_actions
+  end
+
+
   form do |f|
     f.inputs "Mariage" do
+      f.input :name
       f.input :budget
       f.input :place
       f.input :nb_person
@@ -20,8 +32,8 @@ ActiveAdmin.register Wedding do
           table do
             tbody do  
               tr do
-                th "ID"
-                td wedding.id
+                th "Name"
+                td wedding.name
               end
               tr do
                 th "Budget"
@@ -40,20 +52,12 @@ ActiveAdmin.register Wedding do
                 td wedding.nb_child
               end
               tr do
-                th "ORGANIZER"
-                td wedding.organizer
+                th "Organizer"
+                td wedding.organizer.try(:username)
               end
               tr do
-                th "CLIENT"
-                td wedding.client
-              end
-              tr do
-                th "Created at"
-                td wedding.created_at
-              end
-              tr do
-                th "updated at"
-                td wedding.updated_at
+                th "Client"
+                td wedding.client.try(:username)
               end
             end
           end

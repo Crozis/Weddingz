@@ -9,6 +9,7 @@ ActiveAdmin.register Users::Client do
     column :username
     column "Bride", :woman_full_name
     column "Groom", :man_full_name
+    default_actions
   end
 
 
@@ -20,6 +21,9 @@ ActiveAdmin.register Users::Client do
       f.input :woman_last_name
       f.input :man_first_name
       f.input :man_last_name
+    end
+    f.inputs "Wedding" do
+      f.input :wedding, :collection => Wedding.all.collect{|wedding| "#{wedding.name} - #{wedding.place}" }
     end
     f.buttons
   end 

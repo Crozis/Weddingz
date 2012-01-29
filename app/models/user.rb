@@ -15,6 +15,9 @@ class User < ActiveRecord::Base
                   :man_last_name,
                   :username
 
+
+  belongs_to :wedding
+  
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
   # attr_accessor :username
