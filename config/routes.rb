@@ -1,4 +1,7 @@
 Weddingz::Application.routes.draw do
+
+  root :to => 'weddings#index'
+
   resources :service_types
 
   ActiveAdmin.routes(self)
@@ -9,7 +12,7 @@ Weddingz::Application.routes.draw do
     resources :services    
   end
   
-  devise_for :users
+  devise_for :users#, :controllers => { :registrations => "users" }
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -60,7 +63,6 @@ Weddingz::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'weddings#index'
 
   # See how all your routes lay out with "rake routes"
 

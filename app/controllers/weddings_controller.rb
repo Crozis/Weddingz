@@ -1,4 +1,6 @@
 class WeddingsController < ApplicationController
+  before_filter :authenticate_user!
+  
   # GET /weddings
   # GET /weddings.json
   def index

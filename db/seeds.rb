@@ -9,3 +9,4 @@
 ServiceType.create(name: 'Caterers')
 ServiceType.create(name: 'Florists')
 ServiceType.create(name: 'Places')
+
