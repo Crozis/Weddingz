@@ -43,7 +43,7 @@ Service.create(name: 'Flowers by Heidi',
                phone_number: '0405060708', 
                address: "Mollis Commodo Malesuada Dapibus Aenean", 
                front_picture: 'http://www.grif.org/images/entries/fbhlogo.gif',
-               pictures_url: 'http://www.haughty-culture.co.uk/east-devon_florists/gallery_images/wedding_florist/east-devon_wedding1florist/wedding_florist1devon.jpg;http://www.celsiaflorist.com/images/new/wedding.arrangement.04.jpg;http://www.appleblossomstampa.com/yahoo_site_admin/assets/images/Cone_Wedding_June_6_2009_023.16784319.JPG', 
+               pictures_url: 'http://www.bride.ca/wedding-ideas/images/blog/flowers/wedding-floral-decor.jpg;http://www.weddingflowersidea.com/wp-content/uploads/2011/07/Florist-wedding.jpg;http://www.myweddingflowerideas.co.uk/wedding-flowers.jpg;http://wedding-splendor.com/wp-content/uploads/2010/09/wedding-flowers-designs3.jpg', 
                service_type: florist_type, 
                description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.', 
                price: 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.')
