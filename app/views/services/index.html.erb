@@ -1,29 +1,15 @@
-<h1>Listing services</h1>
-
-<table>
-  <tr>
-    <th>Phone number</th>
-    <th>Address</th>
-    <th>Image url</th>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @services.each do |service| %>
-  <tr>
-    <td><%= service.phone_number %></td>
-    <td><%= service.address %></td>
-    <td><%= service.image_url %></td>
-    <td><%= service.name %></td>
-    <td><%= link_to 'Show', [@wedding, service] %></td>
-    <td><%= link_to 'Edit', edit_wedding_service_path(@wedding, service) %></td>
-    <td><%= link_to 'Destroy', [@wedding, service], confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Service', new_wedding_service_path %>
+<ul>
+  <% @services.each do |service| %>
+    <li>
+      <div>
+        <%= service.name %>
+        <%= image_tag service.front_picture, :class => 'front_picture' %>
+        <div class='galery'>
+          <%= service.pictures_url_array.each do |picture_url| %>
+            <%= image_tag picture_url %>
+          <% end %>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>

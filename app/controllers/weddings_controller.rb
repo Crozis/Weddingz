@@ -15,8 +15,10 @@ class WeddingsController < ApplicationController
   # GET /weddings/1
   # GET /weddings/1.json
   def show
-    @wedding = Wedding.find(params[:id])
-
+    if current_user.is_client?
+      @wedding = current_user.wedding
+    end
+    # @wedding = Wedding.find(params[:id])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @wedding }

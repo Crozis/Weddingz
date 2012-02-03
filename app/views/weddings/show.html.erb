@@ -1,35 +1,5 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Budget:</b>
-  <%= @wedding.budget %>
-</p>
-
-<p>
-  <b>Place:</b>
-  <%= @wedding.place %>
-</p>
-
-<p>
-  <b>Nb person:</b>
-  <%= @wedding.nb_person %>
-</p>
-
-<p>
-  <b>Nb child:</b>
-  <%= @wedding.nb_child %>
-</p>
-
-<p>
-  <b>Organizer:</b>
-  <%= @wedding.organizer_id %>
-</p>
-
-<p>
-  <b>Client:</b>
-  <%= @wedding.client_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_wedding_path(@wedding) %> |
-<%= link_to 'Back', weddings_path %>
+<ul>
+  <% @wedding.service_types.each do |service_type| %>
+    <li><%= service_type.name %></li>
+  <% end %>
+</ul>
