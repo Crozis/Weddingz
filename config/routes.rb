@@ -1,6 +1,6 @@
 Weddingz::Application.routes.draw do
 
-  root :to => 'weddings#index'
+  root :to => redirect("/users/sign_in")
 
   resources :service_types
 
