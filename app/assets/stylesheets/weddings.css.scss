@@ -49,4 +49,19 @@ html, body {
 #content {
   display: inline-block;
   margin-left: 15em;
+  padding: 0;
+  ul {
+    list-style: none;
+    li {
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
+      @include uniform_gradient(#F5F5F5, #FFF);
+      margin-bottom:1em;
+    }
+  }
+  img {
+    display: inline-block;
+    max-height: 15em;
+    max-width: 15em;
+  }
 }

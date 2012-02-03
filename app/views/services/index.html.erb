@@ -2,7 +2,7 @@
   <% @services.each do |service| %>
     <li>
       <div>
-        <%= service.name %>
+        <h3><%= service.name %></h3>
         <%= image_tag service.front_picture, :class => 'front_picture' %>
         <div class='galery'>
           <% service.pictures_url_array.each do |picture_url| %>
