@@ -1,0 +1,58 @@
+@import 'base';
+
+#login_view {
+
+  text-align: center;
+  background: #F5F5F5;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+ 
+  &:before {
+    content: '';
+    display: inline-block;
+    height: 100%; 
+    vertical-align: middle;
+    margin-right: -0.25em; /* Adjusts for spacing */
+  }
+ 
+  .centered {
+    display: inline-block;
+    vertical-align: middle;
+    width: 300px;
+    padding: 0;
+    border: #a0a0a0 solid 1px;
+    background: white;
+    @include uniform_gradient(#F5F5F5, #FFF);
+    @include radius(3px);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    h2 {
+      padding-top: 0.5em;
+    }
+  }
+  
+  .links {
+    display: table;
+    width: 100%;
+    @include radiusBottom(3px);
+    > a {
+      display: table-cell;
+      line-height: 2em;
+      text-decoration: none;
+    }
+    > a:hover {
+      color: #a20003;
+      text-decoration: underline;
+      background-color: white;
+    }
+  }
+  
+  form {
+    > div {
+      margin-bottom: 1em;
+    }
+  }
+  input[type="submit"] {
+    width: 10em;
+  }
+}
