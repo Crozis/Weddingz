@@ -1,3 +1,46 @@
 // Place all the styles related to the Weddings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'base';
+
+/*
+html, body {
+  background-color: #F5F5F5;
+}
+*/
+
+#left {
+  background-color: #FEFEFE;
+  border-right: 1px solid #ECECEC;
+  box-shadow: 1px 0px 0 white;
+  width: 15em;
+  height: 100%;
+  ul {
+    display: inline-block;
+    vertical-align: middle;
+    list-style: none;
+    width: 100%;
+    padding: 0;
+    color: #a20003;
+    li {
+      line-height: 3em;
+      padding-left: 1em;
+      //@include uniform_gradient(#F5F5F5, #FFF);
+      background-color: #F2F2F2;
+      box-shadow: inset 0 1px 0 white;
+      font-size: 2em;
+      border-bottom: 1px solid #EEE;
+      cursor: pointer;
+      &:after {
+        content: "▶";
+        float: right;
+        display: inline-block;
+        padding-right: 0.5em;
+        font-size: 0.8em;
+      }
+      &:hover {
+        background-color: #ECECEC;
+      }
+    }
+  }
+}

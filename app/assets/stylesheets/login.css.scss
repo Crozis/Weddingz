@@ -6,12 +6,14 @@
   text-align: center;
   h1 {
     text-align: center;
-    font-size: 4em;
-      display: inline-block;
-      vertical-align: middle;
-      height: 100%;
+    font-size: 7em;
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+    text-shadow: 1px 1px 0 white;
+    color: #a20003;
     &:before {
-        content: '';
+      content: '';
       display: inline-block;
       height: 100%; 
       vertical-align: middle;

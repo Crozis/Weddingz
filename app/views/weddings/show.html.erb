@@ -1,5 +1,8 @@
-<ul>
-  <% @wedding.service_types.each do |service_type| %>
-    <li><%= service_type.name %></li>
-  <% end %>
-</ul>
+<%= stylesheet_link_tag 'weddings' %>
+<div id="left">
+  <ul>
+    <% @wedding.service_types.each do |service_type| %>
+      <li><%= service_type.name %></li>
+    <% end %>
+  </ul>
+</div>
