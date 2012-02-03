@@ -25,7 +25,7 @@ Service.create(name: 'Empty Vase',
                phone_number: '0405060708', 
                address: "Mollis Commodo Malesuada Dapibus Aenean", 
                front_picture: 'http://www.emptyvase.com/images/logo.gif',
-               pictures_url: 'http://www.aristonflorist.com/art2/shopping_photo.jpg;http://www.aristonflorist.com/art2/wed-corp.jpg;http://www.aristonflorist.com/art2/weekly_photo.jpg;http://www.aristonflorist.com/art2/weddings.jpg', 
+               pictures_url: 'http://media.onsugar.com/files/2011/02/07/3/257/2570811/image_0.xxlarge.jpg;http://www.bride.ca/wedding-ideas/images/blog/flowers/bridal-party-bouquets.jpg;http://www.marcialjohnson.com/images/pics_about_nw.jpg;http://www.scottishweddinghq.co.uk/wp-content/uploads/2011/02/weddingflowers.jpg;http://www.sanfranciscoweddingflowers.com/informal-wedding/creative-wedding-flowers.jpg', 
                service_type: florist_type, 
                description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.', 
                price: 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.')

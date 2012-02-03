@@ -1,8 +1,13 @@
-<%= stylesheet_link_tag 'weddings' %>
+<script type="text/javascript">
+  wedding_id = <%= @wedding.id %>
+</script><%= stylesheet_link_tag 'weddings' %>
 <div id="left">
-  <ul>
+  <ul class="services">
     <% @wedding.service_types.each do |service_type| %>
-      <li><%= service_type.name %></li>
+    <li>
+      <a href="#" data-service-type="<%= service_type.name %>"><%= service_type.name %></a>
+    </li>
     <% end %>
   </ul>
 </div>
+<div id="content"></div>
