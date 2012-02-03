@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('.services a').click(function(){
+    $('.services li').click(function(){
         var service_type = $(this).attr('data-service-type');
         $.ajax({
            url      : '/weddings/' + wedding_id + '/services?service_type=' + service_type,
