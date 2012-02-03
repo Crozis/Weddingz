@@ -5,11 +5,21 @@ class ServicesController < ApplicationController
   def wedding
     if(params[:wedding_id])
       @wedding = Wedding.find(params[:wedding_id])
+    else
+      @wedding = Service.all
     end
   end
   
   def index
-    @services = Service.all
+    if(params[:wedding_id])
+      if params[:service_type]
+        @services = Wedding.find(params[:wedding_id]).services_by(params[:service_type])
+      else
+        @services = Wedding.find(params[:wedding_id]).services
+      end
+    else
+      @services = Service.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb

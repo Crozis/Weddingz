@@ -18,14 +18,18 @@ class User < ActiveRecord::Base
 
   belongs_to :wedding
   
+  def is_client?
+    self.type == "Users::Client"
+  end
+  
+  
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
   # attr_accessor :username
-
   def self.find_for_database_authentication(warden_conditions)
      conditions = warden_conditions.dup
      login = conditions.delete(:username)
      where(conditions).where(["lower(username) = :value OR lower(email) = :value", { :value => login.strip.downcase }]).first
-   end  
+  end  
 
 end
