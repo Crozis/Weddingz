@@ -12,8 +12,9 @@ class ServicesController < ApplicationController
   
   def index
     if(params[:wedding_id])
-      if params[:service_type]
-        @services = Wedding.find(params[:wedding_id]).services_by(params[:service_type])
+      if params[:service_type_id]
+        @activated_services = ServicesWedding.activated_services(params[:wedding_id], params[:service_type_id]) || []
+        @disabled_services  = ServicesWedding.disabled_services(params[:wedding_id], params[:service_type_id]) || []
       else
         @services = Wedding.find(params[:wedding_id]).services
       end
@@ -27,6 +28,21 @@ class ServicesController < ApplicationController
     end
   end
 
+  def activate
+    service_wedding = ServicesWedding.where(:wedding_id => params[:wedding_id], :service_id => params[:id]).first
+    service_wedding.activated = params[:activate]
+    if service_wedding.save
+      respond_to do |format|
+        format.html {render :nothing => true, :status => 'success'}
+      end
+    else 
+      respond_to do |format|
+        format.html {render :nothing => true, :status => 'error'}
+      end
+    end
+  end
+
+  ######################## DEFAULT ########################
   # GET /services/1
   # GET /services/1.json
   def show

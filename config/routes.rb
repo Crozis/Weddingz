@@ -9,7 +9,9 @@ Weddingz::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   resources :weddings do
-    resources :services    
+    resources :services do 
+      put 'activate', :on => :member
+    end
   end
   
   devise_for :users#, :controllers => { :registrations => "users" }

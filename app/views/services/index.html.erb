@@ -1,8 +1,8 @@
-<ul>
-  <% @services.each do |service| %>
-    <li>
+<ul class="activated_services">
+  <% @activated_services.each do |service| %>
+    <li data-id="<%= service.id %>">
       <div>
-        <h3><%= service.name %></h3>
+        <h3><%= service.name %> <button data-action="activate" data-value ="false">Désactiver</button></h3>
         <%= image_tag service.front_picture, :class => 'front_picture' %>
         <div class="price"><%= service.price %></div>
         <div class='galery'>
@@ -18,3 +18,26 @@
     </li>
   <% end %>
 </ul>
+
+
+<ul class="disabled_services">
+  <% @disabled_services.each do |service| %>
+    <li data-id="<%= service.id %>">
+      <div>
+        <h3><%= service.name %><button data-action="activate" data-value ="true">Réactiver</button></h3>
+        <%= image_tag service.front_picture, :class => 'front_picture' %>
+        <div class="price"><%= service.price %></div>
+        <div class='galery'>
+          <% service.pictures_url_array.each do |picture_url| %>
+            <%= image_tag picture_url %>
+          <% end %>
+        </div>
+        <div class="more">
+          <div class="address"><%= service.address %></div>
+          <div class="description"><%= service.description %></div>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>
+

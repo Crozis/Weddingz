@@ -4,7 +4,7 @@
 <div id="left">
   <ul class="services">
     <% @wedding.service_types.each do |service_type| %>
-    <li data-service-type="<%= service_type.name %>">
+    <li data-service-type-id="<%= service_type.id %>">
       <%= service_type.name %>
     </li>
     <% end %>
