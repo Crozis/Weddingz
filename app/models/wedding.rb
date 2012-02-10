@@ -17,13 +17,14 @@ class Wedding < ActiveRecord::Base
     end
   end
   
-  def to_json
-    _services = '['
-    self.services.each do |service|
-      _services << ActiveSupport::JSON.encode(service.to_json)
-      _services << ','
-    end
-    _services[_services.length - 1] = ']'
+  def as_json
+    # _services = '['
+    # self.services.each do |service|
+    #   _services << ActiveSupport::JSON.encode(service.to_json)
+    #   _services << ','
+    # end
+    # _services[_services.length - 1] = ']'
+    # _services = ActiveSupport::JSON.decode(_services)
     {
       id:         self.id,
       name:       self.name,
@@ -31,7 +32,7 @@ class Wedding < ActiveRecord::Base
       place:      self.place,
       nb_person:  self.nb_person,
       nb_child:   self.nb_child,
-      services:   _services
+      services:   self.services
     } 
     
   end

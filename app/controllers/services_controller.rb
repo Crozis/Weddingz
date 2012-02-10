@@ -50,7 +50,7 @@ class ServicesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @service.to_json }
+      format.json { render json: @service }
     end
   end
 

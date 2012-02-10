@@ -7,7 +7,7 @@ class Service < ActiveRecord::Base
     self.pictures_url.split(';')
   end
   
-  def to_json
+  def as_json(options)
     {
       id:            self.id,
       name:          self.name,

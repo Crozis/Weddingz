@@ -21,7 +21,7 @@ class WeddingsController < ApplicationController
       end
     else
       respond_to do |format|
-        format.json { render :json => wedding.to_json }
+        format.json { render :json => wedding }
       end
     end
 
@@ -46,7 +46,7 @@ class WeddingsController < ApplicationController
     end
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @wedding.to_json }
+      format.json { render json: @wedding }
     end
   end
 
@@ -57,7 +57,7 @@ class WeddingsController < ApplicationController
     @services = Service.all
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @wedding.to_json }
+      format.json { render json: @wedding }
     end
   end
 
