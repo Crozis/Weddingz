@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120204143730) do
+ActiveRecord::Schema.define(:version => 20120203150423) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(:version => 20120204143730) do
   create_table "services_weddings", :force => true do |t|
     t.integer "service_id"
     t.integer "wedding_id"
-    t.boolean "activated",  :default => false
+    t.boolean "activated",  :default => true
   end
 
   add_index "services_weddings", ["service_id", "wedding_id"], :name => "index_services_weddings_on_service_id_and_wedding_id"
@@ -82,11 +82,6 @@ ActiveRecord::Schema.define(:version => 20120204143730) do
   end
 
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
-
-  create_table "wedding_services", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "weddings", :force => true do |t|
     t.integer  "budget"

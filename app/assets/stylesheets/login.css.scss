@@ -6,7 +6,7 @@
   text-align: center;
   h1 {
     text-align: center;
-    font-size: 7em;
+    font-size: 400%;
     display: inline-block;
     vertical-align: middle;
     height: 100%;
@@ -46,7 +46,8 @@
     background: white;
     @include uniform_gradient(#F5F5F5, #FFF);
     @include radius(3px);
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    //box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: -1px -1px 0 white, inset 0px 0px 6px rgba(0,0,0,0.2);
     h2 {
       padding-top: 0.5em;
     }
