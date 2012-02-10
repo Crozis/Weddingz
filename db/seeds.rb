@@ -6,9 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-caterer_type = ServiceType.create(name: 'Caterers')
-florist_type = ServiceType.create(name: 'Florists')
-place_type   = ServiceType.create(name: 'Places')
+caterer_type = ServiceType.create(name: 'Traiteurs')
+florist_type = ServiceType.create(name: 'Fleuristes')
+place_type   = ServiceType.create(name: 'Lieux')
 
 ############################################################ FLORISTS ############################################################
 
@@ -60,5 +60,5 @@ Service.create(name: 'Castle Murakani',
                
 client    = Users::Client.create(username: 'client', password: 'password')
 organizer = Users::Organizer.create(username: 'organizer', password: 'password')
-wedding   = Wedding.create(name: "Mariage d'Alice et Jean", budget: 4000, place: "Nice", nb_person: 100, client: client, organizer: organizer)
+wedding   = Wedding.create(name: "Mariage d'Alice et Jean", budget: 4000, place: "Nice", nb_person: 100, nb_child: 0, client: client, organizer: organizer)
 wedding.services << Service.all
