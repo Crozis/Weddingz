@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(:version => 20120210083534) do
   create_table "services_weddings", :force => true do |t|
     t.integer "service_id"
     t.integer "wedding_id"
-    t.boolean "activated",  :default => false
+    t.boolean "activated",  :default => true
   end
 
   add_index "services_weddings", ["service_id", "wedding_id"], :name => "index_services_weddings_on_service_id_and_wedding_id"
