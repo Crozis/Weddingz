@@ -21,8 +21,9 @@ class Wedding < ActiveRecord::Base
     _services = '['
     self.services.each do |service|
       _services << ActiveSupport::JSON.encode(service.to_json)
+      _services << ','
     end
-    _services << ']'
+    _services[_services.length - 1] = ']'
     {
       id:         self.id,
       name:       self.name,
