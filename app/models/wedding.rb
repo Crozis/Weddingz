@@ -18,10 +18,11 @@ class Wedding < ActiveRecord::Base
   end
   
   def to_json
-    _services = ''
+    _services = '['
     self.services.each do |service|
       _services << ActiveSupport::JSON.encode(service.to_json)
     end
+    _services << ']'
     {
       id:         self.id,
       name:       self.name,
