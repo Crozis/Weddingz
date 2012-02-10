@@ -1,11 +1,45 @@
+# encoding: utf-8
 class WeddingsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:activate, :activated]
+  
+  def activate
+    weddings = Wedding.all
+    weddings.each do |wedding|
+      wedding.activated = false
+      wedding.save
+    end
+    wedding = Wedding.find(params[:id])
+    wedding.activated = true
+    wedding.save
+  end
+  
+  def activated
+    wedding = Wedding.where(:activated => true).first
+    if wedding.nil?
+      respond_to do |format|
+        format.json { render :text => "Aucun wedding n'est activé"}
+      end
+    else
+      respond_to do |format|
+        format.json { render :json => {
+            id:         wedding.id,
+            name:       wedding.name,
+            budget:     wedding.budget,
+            place:      wedding.place,
+            nb_person:  wedding.nb_person,
+            nb_child:   wedding.nb_child,
+            services:   [wedding.services]
+          } 
+        }
+      end
+    end
+
+  end
   
   # GET /weddings
   # GET /weddings.json
   def index
     @weddings = Wedding.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @weddings }

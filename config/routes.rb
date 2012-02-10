@@ -8,7 +8,10 @@ Weddingz::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
+  get 'weddings/activated'
+
   resources :weddings do
+    get 'activate', :on => :member
     resources :services do 
       put 'activate', :on => :member
     end
