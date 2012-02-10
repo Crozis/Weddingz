@@ -1,8 +1,15 @@
 $(document).ready(function() {
     $('button[data-action=activate]').click(function(event) {
         activate(this);
+        refreshToggler();
     });
    
+   var refreshToggler = function() {
+        $('.togglable .click_toggler').click(function () {
+            $(this).closest('.togglable').toggleClass('open');
+        });
+   };
+    
    var activate = function(button_element) {
        var element = $(button_element).parents('li');
        var service_id = element.attr('data-id');
@@ -30,4 +37,5 @@ $(document).ready(function() {
            }
        });
    }
+  refreshToggler();
 });

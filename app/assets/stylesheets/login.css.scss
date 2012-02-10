@@ -1,17 +1,23 @@
 @import 'base';
+
+body {
+
+}
+
 #login_logo {
-  height: 20%;
-  background: #F5F5F5;
+  height: 30%;
   font-weight: normal;
   text-align: center;
   h1 {
     text-align: center;
-    font-size: 7em;
+    font-size: 500%;
     display: inline-block;
     vertical-align: middle;
     height: 100%;
-    text-shadow: 1px 1px 0 white;
-    color: #a20003;
+    text-shadow: 1px 1px 0 rgba(0,0,0, 1);
+    color: #c70000;
+    font-family: "zapfino";
+    font-weight: bold;
     &:before {
       content: '';
       display: inline-block;
@@ -21,13 +27,12 @@
     }
   }
 }
-#login_view {
 
+#login_view {
   text-align: center;
-  background: #F5F5F5;
   margin: 0;
   padding: 0;
-  height: 80%;
+  height: 70%;
  
   &:before {
     content: '';
@@ -46,7 +51,8 @@
     background: white;
     @include uniform_gradient(#F5F5F5, #FFF);
     @include radius(3px);
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    //box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: -1px -1px 0 white, inset 0px 0px 6px rgba(0,0,0,0.2);
     h2 {
       padding-top: 0.5em;
     }

@@ -83,16 +83,11 @@ ActiveRecord::Schema.define(:version => 20120210083534) do
 
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
-  create_table "wedding_services", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "weddings", :force => true do |t|
-    t.integer  "budget"
+    t.integer  "budget",     :default => 0
     t.string   "place"
-    t.integer  "nb_person"
-    t.integer  "nb_child"
+    t.integer  "nb_person",  :default => 0
+    t.integer  "nb_child",   :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"

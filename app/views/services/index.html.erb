@@ -1,18 +1,23 @@
 <ul class="activated_services">
   <% @activated_services.each do |service| %>
     <li data-id="<%= service.id %>">
-      <div>
-        <h3><%= service.name %> <button data-action="activate" data-value ="false">Désactiver</button></h3>
-        <%= image_tag service.front_picture, :class => 'front_picture' %>
-        <div class="price"><%= service.price %></div>
-        <div class='galery'>
-          <% service.pictures_url_array.each do |picture_url| %>
-            <%= image_tag picture_url %>
-          <% end %>
-        </div>
-        <div class="more">
-          <div class="address"><%= service.address %></div>
-          <div class="description"><%= service.description %></div>
+      <div class="togglable">
+        <div class="top">
+          <button data-action="activate" data-value ="false">x</button>
+          <h3 class="click_toggler"><%= service.name %></h3>
+          <%= image_tag service.front_picture, :class => 'front_picture' %>
+        </div>  
+        <div class="toggler_content">
+          <div class="price"><%= service.price %></div>
+          <div class='galery'>
+            <% service.pictures_url_array.each do |picture_url| %>
+              <%= image_tag picture_url %>
+            <% end %>
+          </div>
+          <div class="more">
+            <div class="address"><%= service.address %></div>
+            <div class="description"><%= service.description %></div>
+          </div>
         </div>
       </div>
     </li>
@@ -23,18 +28,23 @@
 <ul class="disabled_services">
   <% @disabled_services.each do |service| %>
     <li data-id="<%= service.id %>">
-      <div>
-        <h3><%= service.name %><button data-action="activate" data-value ="true">Réactiver</button></h3>
-        <%= image_tag service.front_picture, :class => 'front_picture' %>
-        <div class="price"><%= service.price %></div>
-        <div class='galery'>
-          <% service.pictures_url_array.each do |picture_url| %>
-            <%= image_tag picture_url %>
-          <% end %>
+      <div class="togglable">
+        <div class="top">
+          <button data-action="activate" data-value ="true">Réactiver</button>
+          <h3 class="click_toggler"><%= service.name %></h3>
+          <%= image_tag service.front_picture, :class => 'front_picture' %>
         </div>
-        <div class="more">
-          <div class="address"><%= service.address %></div>
-          <div class="description"><%= service.description %></div>
+        <div class="toggler_content">
+          <div class="price"><%= service.price %></div>
+          <div class='galery'>
+            <% service.pictures_url_array.each do |picture_url| %>
+              <%= image_tag picture_url %>
+            <% end %>
+          </div>
+          <div class="more">
+            <div class="address"><%= service.address %></div>
+            <div class="description"><%= service.description %></div>
+          </div>
         </div>
       </div>
     </li>
