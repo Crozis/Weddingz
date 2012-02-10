@@ -1,7 +1,7 @@
 @import 'base';
 
 body {
-
+  background-color: #333;
 }
 
 #login_logo {
@@ -14,7 +14,8 @@ body {
     display: inline-block;
     vertical-align: middle;
     height: 100%;
-    text-shadow: 1px 1px 0 rgba(0,0,0, 1);
+/*     text-shadow: 1px 1px 0 rgba(0,0,0, 1); */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 1);
     color: #c70000;
     font-family: "zapfino";
     font-weight: bold;
@@ -33,7 +34,9 @@ body {
   margin: 0;
   padding: 0;
   height: 70%;
- 
+  background-image: image_url('bague2.png');
+  background-position: -7% 140%;
+  background-repeat: no-repeat;
   &:before {
     content: '';
     display: inline-block;
@@ -45,14 +48,14 @@ body {
   .centered {
     display: inline-block;
     vertical-align: sub;
-    width: 300px;
+    width: 350px;
     padding: 0;
     border: #a0a0a0 solid 1px;
     background: white;
     @include uniform_gradient(#F5F5F5, #FFF);
     @include radius(3px);
     //box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
-    box-shadow: -1px -1px 0 white, inset 0px 0px 6px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 10px black, inset 0px 0px 6px rgba(0, 0, 0, 0.2);
     h2 {
       padding-top: 0.5em;
     }
@@ -81,5 +84,13 @@ body {
   }
   input[type="submit"] {
     width: 10em;
+  }
+  form input[type=text], form input[type=password], form input[type=email], form input[type=url], form input[type=tel], form textarea, label {
+    font-size: 1.5em;
+    font-family: 'HelveticaNeueLight';
+  }
+  
+  label[for=user_remember_me] {
+    font-size: 1.2em;
   }
 }

@@ -38,7 +38,7 @@ module Weddingz
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
-
+    config.assets.paths << "#{Rails.root}/app/assets/fonts"
     # Enable the asset pipeline
     config.assets.enabled = true
 

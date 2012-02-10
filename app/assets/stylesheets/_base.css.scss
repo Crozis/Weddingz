@@ -1,4 +1,134 @@
+/*---------------------------------------------------------------------------------------------- Fonts -------------------------*/
+@font-face {
+    font-family: 'HelveticaLight';
+    src: asset-url('helveticalight-webfont.eot', image);
+    src: asset-url('helveticalight-webfont.eot?#iefix', image) format('embedded-opentype'),
+         asset-url('helveticalight-webfont.woff', image) format('woff'),
+         asset-url('helveticalight-webfont.ttf', image) format('truetype'),
+         asset-url('helveticalight-webfont.svg#HelveticaLight', image) format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 
+
+@font-face {
+    font-family: 'HelveticaNeueRegular';
+    src: asset-url('helveticaneue-webfont.eot', image);
+    src: asset-url('helveticaneue-webfont.eot?#iefix', image) format('embedded-opentype'),
+         asset-url('helveticaneue-webfont.woff', image) format('woff'),
+         asset-url('helveticaneue-webfont.ttf', image) format('truetype'),
+         asset-url('helveticaneue-webfont.svg#HelveticaNeueRegular', image) format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'HelveticaNeueUltraLightItalic';
+    src: asset-url('helveticaneue-ultralightitalic-webfont.eot', image);
+    src: asset-url('helveticaneue-ultralightitalic-webfont.eot?#iefix', image) format('embedded-opentype'),
+         asset-url('helveticaneue-ultralightitalic-webfont.woff', image) format('woff'),
+         asset-url('helveticaneue-ultralightitalic-webfont.ttf', image) format('truetype'),
+         asset-url('helveticaneue-ultralightitalic-webfont.svg#HelveticaNeueUltraLightItalic', image) format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'HelveticaNeueUltraLight';
+    src: asset-url('helveticaneue-ultralight-webfont.eot', image);
+    src: asset-url('helveticaneue-ultralight-webfont.eot?#iefix', image) format('embedded-opentype', image),
+         asset-url('helveticaneue-ultralight-webfont.woff', image) format('woff', image),
+         asset-url('helveticaneue-ultralight-webfont.ttf', image) format('truetype', image),
+         asset-url('helveticaneue-ultralight-webfont.svg#HelveticaNeueUltraLight', image) format('svg', image);
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'HelveticaNeueLightItalic';
+    src: asset-url('helveticaneue-lightitalic-webfont.eot', image);
+    src: asset-url('helveticaneue-lightitalic-webfont.eot?#iefix', image) format('embedded-opentype'),
+         asset-url('helveticaneue-lightitalic-webfont.woff', image) format('woff'),
+         asset-url('helveticaneue-lightitalic-webfont.ttf', image) format('truetype'),
+         asset-url('helveticaneue-lightitalic-webfont.svg#HelveticaNeueLightItalic', image) format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'HelveticaNeueLight';
+    src: asset-url('helveticaneue-light-webfont.eot', image);
+    src: asset-url('helveticaneue-light-webfont.eot?#iefix', image) format('embedded-opentype'),
+         asset-url('helveticaneue-light-webfont.woff', image) format('woff'),
+         asset-url('helveticaneue-light-webfont.ttf', image) format('truetype'),
+         asset-url('helveticaneue-light-webfont.svg#HelveticaNeueLight', image) format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'HelveticaNeueItalic';
+    src: asset-url('helveticaneue-italic-webfont.eot', image);
+    src: asset-url('helveticaneue-italic-webfont.eot?#iefix', image) format('embedded-opentype'),
+         asset-url('helveticaneue-italic-webfont.woff', image) format('woff'),
+         asset-url('helveticaneue-italic-webfont.ttf', image) format('truetype'),
+         asset-url('helveticaneue-italic-webfont.svg#HelveticaNeueItalic', image) format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'HelveticaNeueCondensedBold';
+    src: asset-url('helveticaneue-condensedbold-webfont.eot', image);
+    src: asset-url('helveticaneue-condensedbold-webfont.eot?#iefix', image) format('embedded-opentype'),
+         asset-url('helveticaneue-condensedbold-webfont.woff', image) format('woff'),
+         asset-url('helveticaneue-condensedbold-webfont.ttf', image) format('truetype'),
+         asset-url('helveticaneue-condensedbold-webfont.svg#HelveticaNeueCondensedBold', image) format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'HelveticaNeueCondensedBlack';
+    src: asset-url('helveticaneue-condensedblack-webfont.eot', image);
+    src: asset-url('helveticaneue-condensedblack-webfont.eot?#iefix', image) format('embedded-opentype'),
+         asset-url('helveticaneue-condensedblack-webfont.woff', image) format('woff'),
+         asset-url('helveticaneue-condensedblack-webfont.ttf', image) format('truetype'),
+         asset-url('helveticaneue-condensedblack-webfont.svg#HelveticaNeueCondensedBlack', image) format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'HelveticaNeueBoldItalic';
+    src: asset-url('helveticaneue-bolditalic-webfont.eot', image);
+    src: asset-url('helveticaneue-bolditalic-webfont.eot?#iefix', image) format('embedded-opentype'),
+         asset-url('helveticaneue-bolditalic-webfont.woff', image) format('woff'),
+         asset-url('helveticaneue-bolditalic-webfont.ttf', image) format('truetype'),
+         asset-url('helveticaneue-bolditalic-webfont.svg#HelveticaNeueBoldItalic', image) format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'HelveticaNeueBold';
+    src: asset-url('helveticaneue-bold-webfont.eot', image);
+    src: asset-url('helveticaneue-bold-webfont.eot?#iefix', image) format('embedded-opentype'),
+         asset-url('helveticaneue-bold-webfont.woff', image) format('woff'),
+         asset-url('helveticaneue-bold-webfont.ttf', image) format('truetype'),
+         asset-url('helveticaneue-bold-webfont.svg#HelveticaNeueBold', image) format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 /*------------------------------------------------------------------------------------------ MIXINS --------------------*/
 
 @mixin radius($radius: 0.3em) {

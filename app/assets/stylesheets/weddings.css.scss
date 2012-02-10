@@ -1,19 +1,14 @@
-// Place all the styles related to the Weddings controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
 @import 'base';
 
-/*
-html, body {
-  background-color: #F5F5F5;
+
+body {
+  background-color: #EFEFEF;
 }
-*/
 
 #left {
   border-right: 1px solid #c6c9ce;
-  background: -webkit-linear-gradient(rgba(245, 235, 235, 0.2), #ecdbdb),
-              -webkit-linear-gradient(left, rgba(245, 235, 235, 0), rgba(245, 235, 235, 0) 97%, #dcc6c9);
-  background-color: #f5ecec;
+  background-color: #333;
+  box-shadow: inset -3px 0 9px rgba(0,0,0,0.5);
   position: fixed;
   bottom: 0;
   left: 0;
@@ -33,31 +28,18 @@ html, body {
     li {
       border-bottom: 1px solid transparent;
       border-top: 1px solid transparent;
-      color: #333;
+      color: #CCC;
       cursor: pointer;
       display: block;
-      font-size: 150%;
+      font-size: 175%;
       outline: none;
       padding: 7px 0;
       text-align: right;
-      text-shadow: white 0 1px 0px;
+      text-shadow:  1px 1px 0px #666; 
       padding-bottom: 20px;
       padding-top: 20px;
-      padding-right: 12px;
-/*
-      &:after {
-        content: " ";
-        float: right;
-        display: block;
-        padding-left: 0.5em;
-        font-size: 0.8em;
-        color: white;
-        height: 10px;
-        width: 10px;
-        background-color: #333;
-        @include radius(1em);
-      }
-*/
+      padding-right: 20px;
+      font-family: 'HelveticaNeueLight';
       &:hover {
         //background-color: #ECECEC;
       }
@@ -69,22 +51,16 @@ html, body {
         float: right;
       }
       &.selected {
-        -webkit-box-shadow: 0px 1px 0px #f7f7f7;
+        //box-shadow: inset 0px -5px 5px rgba(50, 50, 50, 0.8);
+         box-shadow: inset -3px 0 9px rgba(0,0,0,0.5); 
         background: -webkit-linear-gradient(left, #f3c3c3, #f3c3c3 97%, #dfacc8);
-        border-bottom: 1px solid #e10000;
-        border-top: 1px solid #e10000;
+        background: #c70000;
+        border-top: 1px solid #222;
+        border-bottom: 1px solid #222;
         color: black;
-        text-shadow: #bbcee9 0 1px 0px;
+        text-shadow: #e71313 1px 1px 0px;
       }
     }
-    /*
-li:first-child {
-      @include radiusTop(5px);
-    }
-    li:last-child {
-      @include radiusBottom(5px);
-    }
-*/
   }
 }
 
