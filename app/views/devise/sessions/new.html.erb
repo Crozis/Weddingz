@@ -1,7 +1,10 @@
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'login' %>
+<% end %>
 <div id="login_logo"><h1>Weddingz</h1></div>
 <div id="login_view" class="block">
   <div class="centered">
-    <h2>Connectez-vous</h2>
+    <h2>Identifiez-vous pour continuer</h2>
     
     <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
       <div><%= f.label :username, 'Identifiant' %><br />
