@@ -20,7 +20,7 @@ class Wedding < ActiveRecord::Base
   def to_json
     _services = ''
     self.services.each do |service|
-      _services << service.to_json.to_s
+      _services << ActiveSupport::JSON.encode(service.to_json)
     end
     {
       id:         self.id,
@@ -29,7 +29,7 @@ class Wedding < ActiveRecord::Base
       place:      self.place,
       nb_person:  self.nb_person,
       nb_child:   self.nb_child,
-      services:   self.services.to_json
+      services:   _services
     } 
     
   end
