@@ -6,9 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-caterer_type = ServiceType.create(name: 'Caterers')
-florist_type = ServiceType.create(name: 'Florists')
-place_type   = ServiceType.create(name: 'Places')
+caterer_type = ServiceType.create(name: 'Traiteurs')
+florist_type = ServiceType.create(name: 'Fleuristes')
+place_type   = ServiceType.create(name: 'Lieux')
 
 ############################################################ FLORISTS ############################################################
 
