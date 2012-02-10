@@ -25,7 +25,7 @@ class Wedding < ActiveRecord::Base
       place:      self.place,
       nb_person:  self.nb_person,
       nb_child:   self.nb_child,
-      services:   [self.services]
+      services:   self.services
     } 
     
   end

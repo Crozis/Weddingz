@@ -60,5 +60,5 @@ Service.create(name: 'Castle Murakani',
                
 client    = Users::Client.create(username: 'client', password: 'password')
 organizer = Users::Organizer.create(username: 'organizer', password: 'password')
-wedding   = Wedding.create(name: "Mariage d'Alice et Jean", budget: 4000, place: "Nice", nb_person: 100, client: client, organizer: organizer)
+wedding   = Wedding.create(name: "Mariage d'Alice et Jean", budget: 4000, place: "Nice", nb_person: 100, nb_child: 0, client: client, organizer: organizer)
 wedding.services << Service.all
