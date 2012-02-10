@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(:version => 20120203150423) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.boolean  "activated",  :default => false
   end
 
 end
