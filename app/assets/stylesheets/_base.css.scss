@@ -1,3 +1,4 @@
+
 /*------------------------------------------------------------------------------------------ MIXINS --------------------*/
 
 @mixin radius($radius: 0.3em) {
@@ -82,6 +83,31 @@
     )
 }
 
+
+@mixin transition($time: 0.3s) {
+  -webkit-transition : all $time ease-in-out;
+  -moz-transition    : all $time ease-in-out;
+  -ms-transition     : all $time ease-in-out;
+  -o-transition      : all $time ease-in-out;
+  transition         : all $time ease-in-out;
+}
+
+@mixin transition-out($time: 0.3s) {
+  -webkit-transition : all $time ease-out;
+  -moz-transition    : all $time ease-out;
+  -ms-transition     : all $time ease-out;
+  -o-transition      : all $time ease-out;
+  transition         : all $time ease-out;
+}
+
+@mixin transition-in($time: 0.3s) {
+  -webkit-transition : all $time ease-in;
+  -moz-transition    : all $time ease-in;
+  -ms-transition     : all $time ease-in;
+  -o-transition      : all $time ease-in;
+  transition         : all $time ease-in;
+}
+
 html body form input {
   border: 1px solid black;
   box-shadow: inset 0px 1px 5px rgba(0, 0, 0, 0.2);
@@ -105,4 +131,32 @@ html body form input[type="submit"], button {
 html body form input[type="submit"]:hover, button:hover {
   box-shadow: 0 0 0px rgba(0,0,0, 0.3), inset 1px 1px 2px rgba(0, 0, 0, 0.9);
   //border: none;
+}
+
+.togglable {
+  .click_toggler {
+    cursor: pointer;
+  }
+  .click_toggler:before {
+    content: "+";
+    padding-right: 1em;
+    font-size: 0.7em;
+  }
+  .toggler_content {
+    overflow: hidden;
+    max-height: 0px;
+    @include transition-out(0.5s);
+  }
+}
+
+.togglable.open {
+  .click_toggler:before {
+    content: "-";
+    padding-right: 1em;
+    font-size: 0.7em;
+  }
+  .toggler_content {
+    max-height: 400px;
+    @include transition-out(0.5s);
+  }
 }
