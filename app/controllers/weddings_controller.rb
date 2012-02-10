@@ -1,6 +1,6 @@
 # encoding: utf-8
 class WeddingsController < ApplicationController
-  before_filter :authenticate_user!, :except => [:activate, :activated]
+  before_filter :authenticate_user!, :except => [:activate, :activated, :show, :index]
   
   def activate
     weddings = Wedding.all
@@ -21,16 +21,7 @@ class WeddingsController < ApplicationController
       end
     else
       respond_to do |format|
-        format.json { render :json => {
-            id:         wedding.id,
-            name:       wedding.name,
-            budget:     wedding.budget,
-            place:      wedding.place,
-            nb_person:  wedding.nb_person,
-            nb_child:   wedding.nb_child,
-            services:   [wedding.services]
-          } 
-        }
+        format.json { render :json => wedding.to_json }
       end
     end
 
@@ -49,13 +40,13 @@ class WeddingsController < ApplicationController
   # GET /weddings/1
   # GET /weddings/1.json
   def show
-    if current_user.is_client?
+    @wedding = Wedding.find(params[:id])
+    if !current_user.nil? && current_user.is_client?
       @wedding = current_user.wedding
     end
-    # @wedding = Wedding.find(params[:id])
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @wedding }
+      format.json { render json: @wedding.to_json }
     end
   end
 
@@ -66,7 +57,7 @@ class WeddingsController < ApplicationController
     @services = Service.all
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @wedding }
+      format.json { render json: @wedding.to_json }
     end
   end
 
