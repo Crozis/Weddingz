@@ -3,11 +3,7 @@ class Wedding < ActiveRecord::Base
   has_many :services, :through => :services_weddings
   
   has_one :client, :class_name => "Users::Client"
-  has_one :organizer, :class_name => "Users::Organizer"
-  
-  validates :nb_child, :presence => true#, :default => 0
-  
-  
+  has_one :organizer, :class_name => "Users::Organizer"  
   
   def service_types
     self.services.map(&:service_type).uniq!
