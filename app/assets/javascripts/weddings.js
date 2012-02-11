@@ -52,12 +52,14 @@ $(document).ready(function() {
            url      : '/weddings/' + wedding_id + '/services.json?service_type_id=' + service_type_id,
            type     : 'get',
            success  : function(result) {
+/*
               _.each(result.activated_services, function(service){
-                service.pictures_url = service.pictures_url.split(";");
+                service.pictures_url = service.pictures_url.split(",");
               });
               _.each(result.disabled_services, function(service){
-                service.pictures_url = service.pictures_url.split(";");
+                service.pictures_url = service.pictures_url.split(",");
               });
+*/
               
               $('#content .activated_services').empty();
               $('#content .disabled_services').empty();
