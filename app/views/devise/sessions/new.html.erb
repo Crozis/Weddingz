@@ -4,14 +4,13 @@
 <div id="login_logo"><h1>Weddingz</h1></div>
 <div id="login_view" class="block">
   <div class="centered">
-    <h2>Identifiez-vous pour continuer</h2>
+    <h2>Identifiez-vous</h2>
     
     <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-      <div><%= f.label :username, 'Identifiant' %><br />
-      <%= f.text_field :username %></div>
+      <div><%= f.text_field :username, { :placeholder => 'Identifiant'} %></div>
     
-      <div><%= f.label :password, 'Mot de passe' %><br />
-      <%= f.password_field :password %></div>
+      <div><%= f.password_field :password, { :placeholder => 'Mot de passe'} %></div>
+
     
       <% if devise_mapping.rememberable? -%>
         <div><%= f.check_box :remember_me %> <%= f.label :remember_me, 'Se souvenir de moi' %></div>

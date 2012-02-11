@@ -43,6 +43,8 @@ class WeddingsController < ApplicationController
     @wedding = Wedding.find(params[:id])
     if !current_user.nil? && current_user.is_client?
       @wedding = current_user.wedding
+      @activated_services = ServicesWedding.activated_services(@wedding.id, @wedding.service_types[0].id ) || []
+      @disabled_services  = ServicesWedding.disabled_services(@wedding.id, @wedding.service_types[0].id) || []
     end
     respond_to do |format|
       format.html # show.html.erb

@@ -24,7 +24,7 @@ class ServicesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @services }
+      format.json { render json: { activated_services: @activated_services, disabled_services: @disabled_services }}
     end
   end
 

@@ -1,20 +1,123 @@
 <% content_for :css do %>
-<%= stylesheet_link_tag 'weddings' %>
+  <%= stylesheet_link_tag 'services' %>
+  <%= stylesheet_link_tag 'weddings' %>
 <% end %>
 
 <script type="text/javascript">
   wedding_id = <%= @wedding.id %>
 </script>
-<div id="left">
-  <ul class="services">
-    <% @wedding.service_types.each do |service_type| %>
-    <li data-service-type-id="<%= service_type.id %>">
-      <%= service_type.name %>
-    </li>
-    <% end %>
-    <li data-service-type-id="4" class="selected">
-      Traiteur
-    </li>
-  </ul>
+<h1><%= @wedding.name %></h1>
+<div id="wrapper">
+  <div id="left">
+    <div>
+    <ul class="services">
+      <% @wedding.service_types.each.with_index do |service_type, i| %>
+      <li class="<%= i == 0 ? 'selected' : '' %>" data-service-type-id="<%= service_type.id %>">
+        <%= service_type.name %>
+      </li>
+      <% end %>
+    </ul>
+    </div>
+  </div>
+  <div id="content">
+    <h2>Services pré-sélectionnés</h2>
+    <ul class="activated_services">
+      <% @activated_services.each do |serv| %>
+        <li data-id="<%= serv.id %>"><div class="togglable">
+          <div class="top">
+            <h3><%= serv.name %></h3>
+            <div><button class="no_button" data-action="activate" data-value ="false">Mettre de côté</button></div>
+          </div>
+          <img class="front_picture" src="<%= serv.front_picture %>" />  
+          <div class="toggler_content">
+            <div class="price"><%= serv.price %></div>
+            <div class='galery'>
+              <% serv.pictures_url.split(';').each do |pic| %>
+                <img src="<%= pic %>" />
+              <% end %>
+            </div>
+            <div class="more">
+              <div class="address"><%= serv.address %></div>
+            </div>
+          </div>
+          <div class="click_toggler more_info"></div>
+        </div>
+        </li>
+      <% end %>
+    </ul>
+    <h2>Services mis de côtés</h2>
+     <ul class="disabled_services">
+      <% @disabled_services.each do |serv| %>
+        <li data-id="<%= serv.id %>"><div class="togglable">
+          <div class="top">
+            <h3><%= serv.name %></h3>
+            <div><button class="no_button" data-action="disabled" data-value ="false">Activer</button></div>
+          </div>
+          <img class="front_picture" src="<%= serv.front_picture %>" />  
+          <div class="toggler_content">
+            <div class="price"><%= serv.price %></div>
+            <div class='galery'>
+              <% serv.pictures_url.split(';').each do |pic| %>
+                <img src="<%= pic %>" />
+              <% end %>
+            </div>
+            <div class="more">
+              <div class="address"><%= serv.address %></div>
+            </div>
+          </div>
+          <div class="click_toggler more_info"></div>
+        </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>
-<div id="content"></div>
+<script id="service_template" type="text/x-handlebars-template">
+  <li data-id="{{id}}">
+  <div class="togglable">
+    <div class="top">
+      <h3>{{name}}</h3>
+      <div><button class="no_button" data-action="disabled" data-value ="false">Mettre de côté</button></div>
+    </div>
+    <img class="front_picture" src="{{front_picture}}" />  
+    <div class="toggler_content">
+      <div class="price">{{price}}</div>
+      <div class='galery'>
+        {{#each pictures_url}}
+          <img src="{{this}}" />
+        {{/each}}
+      </div>
+      <div class="more">
+        <div class="address">{{address}}</div>
+        <div class="description">{{service}}</div>
+      </div>
+    </div>
+    <div class="click_toggler more_info"></div>
+  </div>
+  </li>
+</script>
+
+<script id="service_template_disable" type="text/x-handlebars-template">
+  <li data-id="{{id}}">
+  <div class="togglable">
+    <div class="top">
+      <h3>{{name}}</h3>
+      <div><button class="no_button" data-action="disabled" data-value ="false">Activer</button></div>
+    </div>
+    <img class="front_picture" src="{{front_picture}}" />  
+    <div class="toggler_content">
+      <div class="price">{{price}}</div>
+      <div class='galery'>
+        {{#each pictures_url}}
+          <img src="{{this}}" />
+        {{/each}}
+      </div>
+      <div class="more">
+        <div class="address">{{address}}</div>
+        <div class="description">{{service}}</div>
+      </div>
+    </div>
+    <div class="click_toggler more_info"></div>
+  </div>
+  </li>
+</script>

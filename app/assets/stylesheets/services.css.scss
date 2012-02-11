@@ -3,38 +3,89 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import 'base';
 
-h3 { color: black; }
-ul.activated_services {
-    h3 {
-        //background-color: green;
-    }
-}
-
-ul.disabled_services {
-    opacity: 0.7;
-    h3 {
-        //background-color: red;
-    }
-}
-
-.top {
-  display: table;
-  width: 100%;
-  > * {
-    display: table-cell;  
+#content {
+  h2 {
+    padding: 0.5em;
+    @include uniform_gradient(#333, #555);
+    color: #EEE;
+    font-family: 'HelveticaNeueUltraLight';
+    text-shadow: 1px 1px 0 black;
   }
-  button {
-/*
-    font-size: 2em;
-    position: absolute;
-    margin: 0;
-    @include radiusBottomRight(5px);
-    border: none;
-    box-shadow: none;
-    text-align: middle;
-*/
+
+  h3 { color: black; }
+  ul.activated_services {
+      h3 {
+          //background-color: green;
+      }
   }
-  img {
+  
+  ul.disabled_services {
+      opacity: 0.7;
+      h3 {
+          //background-color: red;
+      }
+  }
+  
+  .top {
+    display: table;
+    width: 100%;
+    border-bottom: 1px solid #333;
+    //background: #c20505;
+    //box-shadow: inset 1px 1px 0 #e71313;
+    @include uniform_gradient(#a20003, #e10000);
+    line-height: 2em;
+    @include radiusTop(4px);
+    box-shadow: -1px 0px 0 #333, 0px -1px 0 #333, 1px 0px 0 #333;
+    > * {
+      display: table-cell;  
+      vertical-align: middle;
+    }
+    button.no_button {
+      background: transparent;
+      margin: 0;
+      border: none;
+      font-family: 'HelveticaNeue';
+      color: white;
+      font-size: 1em;
+      text-shadow: 1px 1px 0px black;
+    }
+    h3 {
+      margin: 0;
+      font-family: 'HelveticaNeueLight';
+      font-size: 2em;
+      padding: 0.2em;
+      padding-left: 0.5em;
+      color: black;
+      text-shadow: #e71313 1px 1px 0px;
+    }
+    > div {
+      width: 8em;
+      border-left: 1px solid #333;
+      box-shaodw: -1px 0px 0px #e71313;
+    }
+  }
+  .front_picture {
     height: 100px;
+  }
+  .more_info {
+    font-family: 'HelveticaNeue';
+    @include uniform_gradient(#EEE, #FFF);
+    text-align: center;
+    text-shadow: 1px 1px 0px rgba(255,255,255,1);
+    cursor: pointer;
+    border-top: 1px solid #AAA;
+    color: #333;
+    font-size: 1.1em;
+    padding: 2px;
+    text-shadow: white 1px 1px 0px;
+    box-shadow: inset 0px 1px 0px rgba(255,255,255,0.3);
+    @include radiusBottom;
+  }
+  .more_info:hover {
+    cursor: pointer;
+    font-family: 'HelveticaNeue';
+    @include uniform_gradient(#FFF, #EEE);
+    border-top: 1px solid #999;
+    box-shadow: inset 1px 1px 2px rgba(0,0,0,0.2);
   }
 }

@@ -137,6 +137,11 @@
 	border-radius: $radius;
 }
 
+@mixin noradius() {
+	-webkit-border-radius: none;
+	-moz-border-radius: none;
+	border-radius: none;
+}
 
 @mixin radiusRight($radius: 0.3em) {
 	-webkit-border-bottom-right-radius: $radius;
@@ -238,39 +243,14 @@
   transition         : all $time ease-in;
 }
 
-html body form input {
-  border: 1px solid black;
-  box-shadow: inset 0px 1px 5px rgba(0, 0, 0, 0.2);
-}
-
-html body form input[type="submit"], button {
-  @include uniform_gradient(#a20003, #e10000);
-  display: inline-block;
-  padding: 5px 10px 6px 10px;
-  text-shadow: 1px 1px 1px rgba(255,255,255,1);
-  cursor: pointer;
-  border: 1px solid #880003;
-  //border: none;
-  color: white;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
-  //box-shadow: inset 1px 1px 0px rgba(255,255,255,0.3);
-  box-shadow: 0 0 3px rgba(0,0,0, 0.3), inset 1px 1px 0px rgba(255,255,255,0.3);
-  @include radius(5px);
-}
-
-html body form input[type="submit"]:hover, button:hover {
-  box-shadow: 0 0 0px rgba(0,0,0, 0.3), inset 1px 1px 2px rgba(0, 0, 0, 0.9);
-  //border: none;
-}
-
 .togglable {
   .click_toggler {
     cursor: pointer;
   }
   .click_toggler:before {
-    content: "+";
+    content: "Plus d'informations...";
     padding-right: 1em;
-    font-size: 0.7em;
+    font-size: 1em;
   }
   .toggler_content {
     overflow: hidden;
@@ -281,9 +261,9 @@ html body form input[type="submit"]:hover, button:hover {
 
 .togglable.open {
   .click_toggler:before {
-    content: "-";
+    content: "Masquer les d\0000e9tails";
     padding-right: 1em;
-    font-size: 0.7em;
+    font-size: 1em;
   }
   .toggler_content {
     max-height: 400px;

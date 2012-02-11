@@ -9,7 +9,7 @@ $(document).ready(function() {
             $(this).closest('.togglable').toggleClass('open');
         });
    };
-    
+  
    var activate = function(button_element) {
        var element = $(button_element).parents('li');
        var service_id = element.attr('data-id');
@@ -37,5 +37,9 @@ $(document).ready(function() {
            }
        });
    }
-  refreshToggler();
+   refreshToggler();
+   $('#left ul li').click(function() {
+      $('#left ul li').removeClass('selected');   
+      $(this).toggleClass('selected');
+   });
 });
