@@ -28,11 +28,11 @@ body {
   box-shadow: inset -3px 0 9px rgba(0,0,0,0.8), inset 1px 0 5px rgba(0,0,0,0.8);
   display: table-cell;
   width: 215px;
-  vertical-align: middle;
+/*   vertical-align: middle; */
   @include radiusLeft(3px);  
   ul {
     display: inline-block;
-    vertical-align: middle;
+/*     vertical-align: middle; */
     list-style: none;
 /*     position: fixed; */
     width: 215px;
@@ -44,14 +44,14 @@ body {
       border-bottom: 1px solid transparent;
       border-top: 1px solid #555;
       box-shadow: 0 -1px 0 black;
-      color: #CCC;
+      color: #EEE;
       cursor: pointer;
       display: block;
-      font-size: 175%;
+      font-size: 185%;
       outline: none;
       padding: 7px 0;
       text-align: right;
-      text-shadow:  1px 1px 0px #666; 
+      text-shadow:  1px 1px 1px #666; 
       padding-bottom: 20px;
       padding-top: 20px;
       padding-right: 40px;
@@ -76,6 +76,13 @@ body {
       &.selected:last-child {
         border-bottom: 1px solid black;
         box-shadow: 0 1px 0 #555, inset -3px 0 9px rgba(0,0,0,0.5);
+      }
+      > * {
+        display: inline-block;
+        vertical-align: middle;
+      }
+      > img {
+        margin-right: 1em;
       }
     }
   }

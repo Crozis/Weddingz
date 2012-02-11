@@ -78,4 +78,25 @@ $(document).ready(function() {
         }); 
     })
     refreshToggler();
+    
+    var sidePanel = $("#left ul");
+    var sidebarTop = sidePanel.offset().top;
+    var first = true;
+    $(document).scroll(function(evt) {
+        if (first) {
+            sidebarTop = sidePanel.offset().top;
+            first = false;
+        }
+        var wTop = $(window).scrollTop();
+        if (wTop > sidebarTop) {
+            sidePanel.css({
+                position: "fixed",
+                top: "0px"
+            });
+        } else {
+            sidePanel.css({
+                position: "static"
+            });
+        }
+    });
 });

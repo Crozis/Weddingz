@@ -13,7 +13,7 @@
     <ul class="services">
       <% @wedding.service_types.each.with_index do |service_type, i| %>
       <li class="<%= i == 0 ? 'selected' : '' %>" data-service-type-id="<%= service_type.id %>">
-        <%= service_type.name %>
+        <!--<%= image_tag service_type.image_url %> --><%= service_type.name %>
       </li>
       <% end %>
     </ul>
