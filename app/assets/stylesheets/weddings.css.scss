@@ -20,6 +20,7 @@ body {
   border-left: 1px solid #333;
   @include radius(4px);
   box-shadow: 1px 1px 0 white, -1px -1px 0 white;
+  vertical-align: top;
 }
 
 #left {
@@ -28,11 +29,9 @@ body {
   box-shadow: inset -3px 0 9px rgba(0,0,0,0.8), inset 1px 0 5px rgba(0,0,0,0.8);
   display: table-cell;
   width: 215px;
-/*   vertical-align: middle; */
   @include radiusLeft(3px);  
   ul {
     display: inline-block;
-/*     vertical-align: middle; */
     list-style: none;
 /*     position: fixed; */
     width: 215px;
@@ -90,6 +89,7 @@ body {
 
 #content {
   display: table-cell;
+  vertical-align: top;
   margin-left: 215px;
   padding: 0;
   background-color: #EEE;
