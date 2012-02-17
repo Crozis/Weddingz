@@ -1,10 +1,10 @@
 $(document).ready(function() {
     var refreshButton = function() {
-      $('button[data-action=activate]').click(function(event) {
+      $('button[data-action=activate], button[data-action=disabled]').click(function(event) {
           activate(this);
           refreshToggler();
       });
-    }   
+    }      
    var refreshToggler = function() {
         $('.togglable .click_toggler').click(function () {
             $(this).closest('.togglable').toggleClass('open');

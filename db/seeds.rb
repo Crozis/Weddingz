@@ -12,7 +12,7 @@ place_type   = ServiceType.create(name: 'Lieux')
 
 ############################################################ FLORISTS ############################################################
 
-Service.create(name: 'Ariston Flowers', 
+Service.create(name: 'Fleuriste Ariston', 
                phone_number: '0405060708', 
                address: "Mollis Commodo Malesuada Dapibus Aenean", 
                front_picture: 'http://www.aristonflorist.com/art2/ariston_logo.gif',
@@ -21,7 +21,7 @@ Service.create(name: 'Ariston Flowers',
                description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.', 
                price: 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.')
 
-Service.create(name: 'Empty Vase', 
+Service.create(name: 'Vase Vide', 
                phone_number: '0405060708', 
                address: "Mollis Commodo Malesuada Dapibus Aenean", 
                front_picture: 'http://www.emptyvase.com/images/logo.gif',
@@ -49,6 +49,15 @@ Service.create(name: 'Flowers by Heidi',
                price: 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.')
 
 ############################################################ PLACES ############################################################
+Service.create(name: 'Castle Murakani', 
+               phone_number: '0405060708', 
+               address: "Mollis Commodo Malesuada Dapibus Aenean", 
+               front_picture: 'http://blg.murakamiphotography.co.uk/blog/2008/td_highcliffe_castle_wedding.jpg',
+               pictures_url: 'http://blg.murakamiphotography.co.uk/blog/2008/td_bridal_portrait_highcliffe_castle_dorset.jpg;http://blg.murakamiphotography.co.uk/blog/2008/td_groom_portrait.jpg;http://blg.murakamiphotography.co.uk/blog/2008/td_highcliffe_castle_romantic_portrait.jpg;http://blg.murakamiphotography.co.uk/blog/2008/td_the_old_barn_dorset_wedding_venues.jpg', 
+               service_type: place_type, 
+               description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.', 
+               price: 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.')
+
 Service.create(name: 'Castle Murakani', 
                phone_number: '0405060708', 
                address: "Mollis Commodo Malesuada Dapibus Aenean", 
