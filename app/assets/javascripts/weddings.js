@@ -4,7 +4,7 @@ $(document).ready(function() {
           activate(this);
           refreshToggler();
       });
-  }   
+    }   
    var refreshToggler = function() {
         $('.togglable .click_toggler').click(function () {
             $(this).closest('.togglable').toggleClass('open');
@@ -26,19 +26,20 @@ $(document).ready(function() {
                    if ($(button_element).attr('data-value') === "true") {
                        $('ul.activated_services').prepend(element);
                        $(button_element).attr('data-value', "false");
-                       $(button_element).text('Désactiver')
+                       $(button_element).text('Mettre de côté')
                    } else {
                        $('ul.disabled_services').prepend(element);
                        $(button_element).attr('data-value', "true");
                        $(button_element).text('Activer')
                    }
                    element.slideDown();
-
                });
+              refreshToggler();
            }
        });
    }
    refreshToggler();
+   
    $('#left ul li').click(function() {
       $('#left ul li').removeClass('selected');   
       $(this).toggleClass('selected');
@@ -52,15 +53,6 @@ $(document).ready(function() {
            url      : '/weddings/' + wedding_id + '/services.json?service_type_id=' + service_type_id,
            type     : 'get',
            success  : function(result) {
-/*
-              _.each(result.activated_services, function(service){
-                service.pictures_url = service.pictures_url.split(",");
-              });
-              _.each(result.disabled_services, function(service){
-                service.pictures_url = service.pictures_url.split(",");
-              });
-*/
-              
               $('#content .activated_services').empty();
               $('#content .disabled_services').empty();
               _.each(result.activated_services, function(service){
@@ -69,16 +61,14 @@ $(document).ready(function() {
               _.each(result.disabled_services, function(service){
                 $('#content .disabled_services').append(disabled_template(service));
               });
-              
-              $('.togglable .click_toggler').click(function () {
-                $(this).closest('.togglable').toggleClass('open');
-              });
               refreshButton();
+              refreshToggler();
            }
         }); 
+        refreshToggler();
     })
     refreshToggler();
-    
+    refreshButton();
     var sidePanel = $("#left ul");
     var sidebarTop = sidePanel.offset().top;
     var first = true;

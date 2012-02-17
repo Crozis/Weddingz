@@ -30,13 +30,13 @@ body {
 }
 
 #login_view {
-  text-align: center;
-  margin: 0;
-  padding: 0;
-  height: 70%;
-  background-image: image_url('bague2.png');
+  text-align         : center;
+  margin             : 0;
+  padding            : 0;
+  height             : 70%;
+  background-image   : image_url('bague2.png');
   background-position: -7% 140%;
-  background-repeat: no-repeat;
+  background-repeat  : no-repeat;
   &:before {
     content: '';
     display: inline-block;
@@ -46,16 +46,15 @@ body {
   }
  
   .centered {
-    display: inline-block;
+    display       : inline-block;
     vertical-align: sub;
-    width: 350px;
-    padding: 0;
-    border: #a0a0a0 solid 1px;
-    background: white;
+    width         : 350px;
+    padding       : 0;
+    border        : #a0a0a0 solid 1px;
+    background    : white;
+    box-shadow    : 0px 0px 10px black, inset 0px 0px 6px rgba(0, 0, 0, 0.2);
     @include uniform_gradient(#F5F5F5, #FFF);
     @include radius(3px);
-    //box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
-    box-shadow: 0px 0px 10px black, inset 0px 0px 6px rgba(0, 0, 0, 0.2);
     h2 {
       padding-top: 0.5em;
     }

@@ -33,7 +33,6 @@
     //background: #c20505;
     //box-shadow: inset 1px 1px 0 #e71313;
     @include uniform_gradient(#a20003, #e10000);
-    line-height: 2em;
     @include radiusTop(4px);
     box-shadow: -1px 0px 0 #333, 0px -1px 0 #333, 1px 0px 0 #333;
     > * {
@@ -41,28 +40,43 @@
       vertical-align: middle;
     }
     button.no_button {
-      background: transparent;
-      margin: 0;
-      border: none;
+      background : transparent;
+      margin     : 0;
+      border     : none;
       font-family: 'HelveticaNeue';
-      color: white;
-      font-size: 1em;
+      color      : white;
+      font-size  : 1em;
       text-shadow: 1px 1px 0px black;
+      line-height: 2em;
+      cursor     : pointer;
+      text-align : center;
+      width: 100%;
+      border-left: 1px solid #333;
+      box-shaodw: -1px 0px 0px #e71313;
+      padding: 5px 0 4px 0;
+    }
+    button:hover {
+      box-shadow: 0 0 0px rgba(0,0,0, 0.3), inset 1px 1px 2px rgba(0, 0, 0, 0.9);
+      cursor     : pointer;
     }
     h3 {
+      width: 80%;
       margin: 0;
       font-family: 'HelveticaNeueLight';
       font-size: 2em;
-      padding: 0.2em;
-      padding-left: 0.5em;
       color: black;
       text-shadow: #e71313 1px 1px 0px;
+      padding: 5px 0 4px 0;
+      padding-left: 0.5em;
     }
+/*
     > div {
       width: 8em;
       border-left: 1px solid #333;
       box-shaodw: -1px 0px 0px #e71313;
+      text-align: center;
     }
+*/
   }
   .front_picture {
     height: 100px;
