@@ -71,8 +71,27 @@
       padding-left: 0.5em;
     }
   }
-  .front_picture {
-    height: 100px;
+  
+  
+  .middle {
+    display: table;
+    width: 100%;
+    border-spacing: 5px;
+    > * {
+        display: table-cell;
+        vertical-align: top;
+    }
+    > img {
+        height: 100px;
+    }
+  }
+  .price {
+    padding-left: 5px;
+  }
+  .price:before {
+    content: "Tarifs :";
+    font-weight: bold;
+    padding-right: 0.5em;      
   }
   .more_info {
     font-family: 'HelveticaNeue';
@@ -94,5 +113,8 @@
     @include uniform_gradient(#FFF, #EEE);
     border-top: 1px solid #999;
     box-shadow: inset 1px 1px 2px rgba(0,0,0,0.2);
+  }
+  .toggler_content .more {
+    padding-left: 5px;
   }
 }

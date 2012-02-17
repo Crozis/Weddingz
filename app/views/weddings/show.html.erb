@@ -23,7 +23,8 @@
     <h2>Services pré-sélectionnés</h2>
     <ul class="activated_services">
       <% @activated_services.each do |serv| %>
-        <li data-id="<%= serv.id %>"><div class="togglable">
+        <li data-id="<%= serv.id %>">
+        <div class="togglable">
           <div class="top">
             <h3><%= serv.name %></h3>
             <button class="no_button" data-action="activate" data-value="false">Mettre de côté</button>
@@ -31,7 +32,8 @@
           <div class="middle">
               <img class="front_picture" src="<%= serv.front_picture %>" />
               <div class="summary"><%= serv.summary %></div>
-          </div>          <div class="toggler_content">
+          </div>          
+          <div class="toggler_content">
             <div class="price"><%= serv.price %></div>
             <div class='galery'>
               <% serv.pictures_url.split(';').each do |pic| %>
@@ -45,7 +47,7 @@
           </div>
           <div class="click_toggler more_info"></div>
         </div>
-        </li>
+    </li>
       <% end %>
     </ul>
     <h2>Services mis de côtés</h2>
