@@ -4,6 +4,8 @@ class Wedding < ActiveRecord::Base
   
   has_one :client, :class_name => "Users::Client"
   has_one :organizer, :class_name => "Users::Organizer"  
+
+  before_create :add_services
   
   def service_types
     self.services.map(&:service_type).uniq!
@@ -36,4 +38,14 @@ class Wedding < ActiveRecord::Base
     } 
     
   end
+  
+  private 
+  def add_services
+    self.services = Service.all
+    #self.wedding_photo = 'http://img571.imageshack.us/img571/984/1059822coloringpageoutl.jpg' 
+    #self.groom_photo   =
+    #self.bride_photo   =
+
+  end
+
 end
