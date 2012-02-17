@@ -63,6 +63,7 @@ $(document).ready(function() {
               });
               refreshButton();
               refreshToggler();
+                refreshSlideshow();
            }
         }); 
         refreshToggler();
@@ -89,4 +90,80 @@ $(document).ready(function() {
             });
         }
     });
+    
+    var refreshSlideshow = function() {
+         $('.slidesContainer').css('overflow', 'hidden');
+            
+              $('.slideshow').each(function() {
+                  var slideshow = this;
+                	//Configuration
+            		  var retour = true;
+            		  var tempsTransition = 1000;
+            	  	var tempsAttente = 6000;
+            			
+            		  var currentPosition = 0;
+            		  var slideWidth = 510;
+            		  var slides = $(slideshow).find('.slide');
+            		  var numberOfSlides = slides.length;
+            		  var interval;
+                  
+                  // Supprime la scrollbar en JS
+                
+                  // Attribue  #slideInner  à toutes les div .slide
+                  slides.wrapAll('<div class="slideInner"></div>')
+                    // Float left to display horizontally, readjust .slides width
+                	.css({
+                      'float' : 'left',
+                      'width' : slideWidth
+                    });
+                
+                  // Longueur de #slideInner égale au total de la longueur de tous les slides
+                  $(slideshow).find('.slideInner').css('width', slideWidth * numberOfSlides);
+                
+                  // Insert controls in the DOM
+                  $(slideshow).prepend('<span class="control leftControl">Précédent</span>')
+                               .append('<span class="control rightControl">Suivant</span>');
+                
+                
+                  
+                  // Hide left arrow control on first load
+                  manageControls(currentPosition);
+                
+                  //Crée un écouteur d'évènement de type clic sur les classes .control
+                  $(slideshow).find('.control').bind('click', function(){
+                    // Determine la nouvelle position
+                  	currentPosition = ($(this).hasClass('rightControl') ? currentPosition + 1 : currentPosition - 1);
+                      
+                  	if(currentPosition == numberOfSlides && retour == false ){
+                  		currentPosition--;
+                  		pause();
+                  	}  	
+                  	// Cache ou montre les controles
+                    manageControls(currentPosition);
+                    // Fais bouger le slide
+                    $(slideshow).find('.slideInner').animate({
+                      'marginLeft' : slideWidth*(-currentPosition)
+                    },tempsTransition);
+                  });
+                
+                  // manageControls: Cache ou montre les flêches de controle en fonction de la position courante
+                  function manageControls(position){
+                    // Cache la fleche "précédent" si on est sur le premier slide
+                  	if(position==0){ $(slideshow).find('.leftControl').hide() } else{ $(slideshow).find('.leftControl').show() }
+                  	// Cache la fleche "suivant" si on est sur le dernier slide (et que le retour automatique n'est pas activé)
+                    if(position==numberOfSlides-1 && retour == false){
+                	   	$(slideshow).find('.rightControl').hide();
+                  	} else {
+                  		$(slideshow).find('.rightControl').show();
+                  	}
+                    if(position == numberOfSlides && retour == true){
+                      currentPosition = 0;
+                	 	  $(slideshow).find('.leftControl').hide();
+                	  }
+                  }
+                  function suivant(){
+                  	$(slideshow).find('.rightControl').click();
+                	}
+              });
+    }
 });

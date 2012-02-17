@@ -1,5 +1,10 @@
 @import 'base';
 
+footer {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
 body {
   max-width: 70em;
   margin: auto;
@@ -72,6 +77,10 @@ body {
         border-bottom: 1px solid black;
         box-shadow: 0 -1px 0 black, 0 1px 0 #555;
       }
+      &:first-child {
+        border-top: none;
+        box-shadow: none;
+      }
       &.selected:last-child {
         border-bottom: 1px solid black;
         box-shadow: 0 1px 0 #555, inset -3px 0 9px rgba(0,0,0,0.5);
@@ -118,12 +127,17 @@ body {
 .slideshow {
   position   : relative;
   overflow: auto;
-  height: 250px;
+  height: 270px;
   background-color: #252525;
+  margin: 20px;
+  margin-top: 0;
+    box-shadow: inset 1px 0 0 white, inset -1px 0 0 white, inset 0px -1px 0 white, inset 0px 1px 0 white, 0px 0px 3px rgba(0, 0, 0, 0.3);
+    border    : 1px solid #AAA;
+    border-radius: 1px;
 }
 .slideshow .slidesContainer {
-  margin     : 0 auto;
-  max-width  : 550px;
+  margin     : 10px auto;
+  max-width  : 510px;
   position   : absolute;
 }
 
@@ -141,16 +155,30 @@ body {
   cursor     : pointer;
 }
 .leftControl {
-  top       : 0;
+  top       : 48%;
   left      : 0;
-  background: transparent image_url('control_left.jpg') no-repeat 0 0;
+  content : " ";
+  //background: transparent image_url('control_left.jpg') no-repeat 0 0;
   z-index: 10;
+  height: 0px;
+  width: 10px;
+  background-color: transparent;
+  border-right: 10px solid #CCC;
+  border-bottom: 10px solid transparent;
+  border-top: 10px solid transparent;
 }
 .rightControl {
-  top       : 0;
-  right     : 0;
-  background: transparent image_url("control_right.jpg") no-repeat 0 0;
+  top       : 48%;
+  right      : 0;
+  content : " ";
+  //background: transparent image_url('control_left.jpg') no-repeat 0 0;
   z-index: 10;
+  height: 0px;
+  width: 10px;
+  background-color: transparent;
+  border-left: 10px solid #CCC;
+  border-bottom: 10px solid transparent;
+  border-top: 10px solid transparent;
 }
 
 .slide img {

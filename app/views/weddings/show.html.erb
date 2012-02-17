@@ -34,7 +34,6 @@
               <div class="summary"><%= serv.summary %></div>
           </div>          
           <div class="toggler_content">
-            <div class="price"><%= serv.price %></div>
             <div class="slideshow">
               <div class="slidesContainer">
               <% serv.pictures_url.split(';').each do |pic| %>
@@ -43,6 +42,7 @@
               </div>
             </div>
             <div class="more">
+                <div class="price"><%= serv.price %></div>
               <div class="address"><%= serv.address %></div>
               <div class="description"><%= serv.description %></div>
             </div>
@@ -65,7 +65,6 @@
               <div class="summary"><%= serv.summary %></div>
           </div>
           <div class="toggler_content">
-            <div class="price"><%= serv.price %></div>
             <div class="slideshow">
               <div class="slidesContainer">
               <% serv.pictures_url.split(';').each do |pic| %>
@@ -74,6 +73,7 @@
               </div>
             </div>
             <div class="more">
+                <div class="price"><%= serv.price %></div>
               <div class="address"><%= serv.address %></div>
               <div class="description"><%= serv.description %></div>
             </div>
@@ -98,7 +98,6 @@
         <div class="summary">{{summary}}</div>
     </div>
     <div class="toggler_content">
-      <div class="price">{{price}}</div>
       <div class="slideshow">
         <div class="slidesContainer">
           {{#each pictures_url}}
@@ -107,6 +106,7 @@
         </div>
       </div>
       <div class="more">
+          <div class="price">{{price}}</div>
         <div class="address">{{address}}</div>
         <div class="description">{{description}}</div>
       </div>
@@ -128,7 +128,6 @@
         <div class="summary">{{summary}}</div>
     </div>
     <div class="toggler_content">
-      <div class="price">{{price}}</div>
       <div class="slideshow">
         <div class="slidesContainer">
           {{#each pictures_url}}
@@ -137,6 +136,7 @@
         </div>
       </div>
       <div class="more">
+          <div class="price">{{price}}</div>
         <div class="address">{{address}}</div>
         <div class="description">{{description}}</div>
       </div>
@@ -165,7 +165,7 @@ $(document).ready(function(){
 	  	var tempsAttente = 6000;
 			
 		  var currentPosition = 0;
-		  var slideWidth = 560;
+		  var slideWidth = 510;
 		  var slides = $(slideshow).find('.slide');
 		  var numberOfSlides = slides.length;
 		  var interval;
