@@ -26,7 +26,7 @@
         <li data-id="<%= serv.id %>"><div class="togglable">
           <div class="top">
             <h3><%= serv.name %></h3>
-            <div><button class="no_button" data-action="activate" data-value ="false">Mettre de côté</button></div>
+            <button class="no_button" data-action="activate" data-value="false">Mettre de côté</button>
           </div>
           <img class="front_picture" src="<%= serv.front_picture %>" />  
           <div class="toggler_content">
@@ -51,7 +51,7 @@
         <li data-id="<%= serv.id %>"><div class="togglable">
           <div class="top">
             <h3><%= serv.name %></h3>
-            <div><button class="no_button" data-action="disabled" data-value ="false">Activer</button></div>
+            <button class="no_button" data-action="activate" data-value="true">Activer</button>
           </div>
           <img class="front_picture" src="<%= serv.front_picture %>" />  
           <div class="toggler_content">
@@ -77,7 +77,7 @@
   <div class="togglable">
     <div class="top">
       <h3>{{name}}</h3>
-      <div><button class="no_button" data-action="disabled" data-value ="false">Mettre de côté</button></div>
+      <button class="no_button" data-action="activate" data-value ="false">Mettre de côté</button>
     </div>
     <img class="front_picture" src="{{front_picture}}" />  
     <div class="toggler_content">
@@ -102,7 +102,7 @@
   <div class="togglable">
     <div class="top">
       <h3>{{name}}</h3>
-      <div><button class="no_button" data-action="disabled" data-value ="false">Activer</button></div>
+      <button class="no_button" data-action="activate" data-value ="true">Activer</button>
     </div>
     <img class="front_picture" src="{{front_picture}}" />  
     <div class="toggler_content">
@@ -120,4 +120,10 @@
     <div class="click_toggler more_info"></div>
   </div>
   </li>
+</script>
+
+<script type="text/javascript">
+        $('.togglable .click_toggler').click(function () {
+            $(this).closest('.togglable').toggleClass('open');
+        });
 </script>
