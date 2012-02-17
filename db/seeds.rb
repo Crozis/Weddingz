@@ -1,73 +1,56 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+# Encoding: UTF-8
 
-caterer_type = ServiceType.create(name: 'Traiteurs')
-florist_type = ServiceType.create(name: 'Fleuristes')
-place_type   = ServiceType.create(name: 'Lieux')
+accomodation_type   = ServiceType.create(name: 'Hébergements')
+animation_type      = ServiceType.create(name: 'Animations')
+decoration_type     = ServiceType.create(name: 'Décorations')
 
-############################################################ FLORISTS ############################################################
+require File.dirname(__FILE__) + '/services_seed/florists_seed.rb'
+require File.dirname(__FILE__) + '/services_seed/places_seed.rb'
+require File.dirname(__FILE__) + '/services_seed/caterer_seed.rb'
+require File.dirname(__FILE__) + '/services_seed/photographs_seed.rb'
 
-Service.create(name: 'Fleuriste Ariston', 
-               phone_number: '0405060708', 
-               address: "Mollis Commodo Malesuada Dapibus Aenean", 
-               front_picture: 'http://www.aristonflorist.com/art2/ariston_logo.gif',
-               pictures_url: 'http://www.aristonflorist.com/art2/shopping_photo.jpg;http://www.aristonflorist.com/art2/wed-corp.jpg;http://www.aristonflorist.com/art2/weekly_photo.jpg;http://www.aristonflorist.com/art2/weddings.jpg', 
-               service_type: florist_type, 
-               description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.', 
-               price: 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.')
-
-Service.create(name: 'Vase Vide', 
-               phone_number: '0405060708', 
-               address: "Mollis Commodo Malesuada Dapibus Aenean", 
-               front_picture: 'http://www.emptyvase.com/images/logo.gif',
-               pictures_url: 'http://media.onsugar.com/files/2011/02/07/3/257/2570811/image_0.xxlarge.jpg;http://www.bride.ca/wedding-ideas/images/blog/flowers/bridal-party-bouquets.jpg;http://www.marcialjohnson.com/images/pics_about_nw.jpg;http://www.scottishweddinghq.co.uk/wp-content/uploads/2011/02/weddingflowers.jpg;http://www.sanfranciscoweddingflowers.com/informal-wedding/creative-wedding-flowers.jpg', 
-               service_type: florist_type, 
-               description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.', 
-               price: 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.')
-
-Service.create(name: 'Cherry Pearson', 
-               phone_number: '0405060708', 
-               address: "Mollis Commodo Malesuada Dapibus Aenean", 
-               front_picture: 'http://rebusiness.com.au/wp-content/uploads/2009/01/cheryl-pearson-bc-front-600.jpg',
-               pictures_url: 'http://www.haughty-culture.co.uk/east-devon_florists/gallery_images/wedding_florist/east-devon_wedding1florist/wedding_florist1devon.jpg;http://www.celsiaflorist.com/images/new/wedding.arrangement.04.jpg;http://www.appleblossomstampa.com/yahoo_site_admin/assets/images/Cone_Wedding_June_6_2009_023.16784319.JPG', 
-               service_type: florist_type, 
-               description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.', 
-               price: 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.')
-
-Service.create(name: 'Flowers by Heidi', 
-               phone_number: '0405060708', 
-               address: "Mollis Commodo Malesuada Dapibus Aenean", 
-               front_picture: 'http://www.grif.org/images/entries/fbhlogo.gif',
-               pictures_url: 'http://www.bride.ca/wedding-ideas/images/blog/flowers/wedding-floral-decor.jpg;http://www.weddingflowersidea.com/wp-content/uploads/2011/07/Florist-wedding.jpg;http://www.myweddingflowerideas.co.uk/wedding-flowers.jpg;http://wedding-splendor.com/wp-content/uploads/2010/09/wedding-flowers-designs3.jpg', 
-               service_type: florist_type, 
-               description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.', 
-               price: 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.')
-
-############################################################ PLACES ############################################################
-Service.create(name: 'Castle Murakani', 
-               phone_number: '0405060708', 
-               address: "Mollis Commodo Malesuada Dapibus Aenean", 
-               front_picture: 'http://blg.murakamiphotography.co.uk/blog/2008/td_highcliffe_castle_wedding.jpg',
-               pictures_url: 'http://blg.murakamiphotography.co.uk/blog/2008/td_bridal_portrait_highcliffe_castle_dorset.jpg;http://blg.murakamiphotography.co.uk/blog/2008/td_groom_portrait.jpg;http://blg.murakamiphotography.co.uk/blog/2008/td_highcliffe_castle_romantic_portrait.jpg;http://blg.murakamiphotography.co.uk/blog/2008/td_the_old_barn_dorset_wedding_venues.jpg', 
-               service_type: place_type, 
-               description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.', 
-               price: 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.')
-
-Service.create(name: 'Castle Murakani', 
-               phone_number: '0405060708', 
-               address: "Mollis Commodo Malesuada Dapibus Aenean", 
-               front_picture: 'http://blg.murakamiphotography.co.uk/blog/2008/td_highcliffe_castle_wedding.jpg',
-               pictures_url: 'http://blg.murakamiphotography.co.uk/blog/2008/td_bridal_portrait_highcliffe_castle_dorset.jpg;http://blg.murakamiphotography.co.uk/blog/2008/td_groom_portrait.jpg;http://blg.murakamiphotography.co.uk/blog/2008/td_highcliffe_castle_romantic_portrait.jpg;http://blg.murakamiphotography.co.uk/blog/2008/td_the_old_barn_dorset_wedding_venues.jpg', 
-               service_type: place_type, 
-               description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.', 
-               price: 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.')
-               
 client    = Users::Client.create(username: 'client', password: 'password')
 organizer = Users::Organizer.create(username: 'organizer', password: 'password')
-wedding   = Wedding.create(name: "Mariage d'Alice et Jean", budget: 4000, place: "Nice", nb_person: 100, nb_child: 0, client: client, organizer: organizer)
-wedding.services << Service.all
+wedding   = Wedding.create(budget:             4000, 
+                           place:              "Nice", 
+                           nb_person:          40, 
+                           nb_child:           0, 
+                           client:             client, 
+                           organizer:          organizer,
+                           bride_first_name:   'Alice',
+                           bride_last_name:    'Liso',
+                           bride_phone_number: '0607080910',
+                           bride_email:        'alice@gmail.com',
+                                             
+                           groom_first_name:   'Jean',
+                           groom_last_name:    'Trota',
+                           groom_phone_number: '0610111213',
+                           groom_email:        'jean@gmail.com',
+                           
+                           religion:           'Catholique',
+                           place_type:         'Plage',
+                           desired_atmosphere: 'Petit commité',
+                           wedding_photo:       'http://img705.imageshack.us/img705/2356/screenshot20120217at112.png')
+                                 
+
+client2    = Users::Client.create(username: 'client2', password: 'password')
+wedding2 = Wedding.create(budget:             4000, 
+                          place:              "Nice", 
+                          nb_person:          200, 
+                          nb_child:           30, 
+                          client:             client2,
+                          organizer:          organizer,
+                          bride_first_name:   'Julie',
+                          bride_last_name:    'Dupont',
+                          bride_phone_number: '0607080910',
+                          bride_email:        'julie@gmail.com',
+                                            
+                          groom_first_name:   'Paolo',
+                          groom_last_name:    'Carito',
+                          groom_phone_number: '0610111213',
+                          groom_email:        'paolo@gmail.com',
+                            
+                          religion:           'Catholique',
+                          place_type:         'Château',
+                          desired_atmosphere: 'Festif')
+                                 

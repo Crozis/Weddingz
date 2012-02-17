@@ -1,9 +1,12 @@
+# encoding: utf-8
 class Wedding < ActiveRecord::Base
   has_many :services_weddings
   has_many :services, :through => :services_weddings
   
   has_one :client, :class_name => "Users::Client"
   has_one :organizer, :class_name => "Users::Organizer"  
+
+  before_create :add_services
   
   def service_types
     self.services.map(&:service_type).uniq!
@@ -26,14 +29,43 @@ class Wedding < ActiveRecord::Base
     # _services[_services.length - 1] = ']'
     # _services = ActiveSupport::JSON.decode(_services)
     {
-      id:         self.id,
-      name:       self.name,
-      budget:     self.budget,
-      place:      self.place,
-      nb_person:  self.nb_person,
-      nb_child:   self.nb_child,
+      id:                 self.id,
+      budget:             self.budget     || 0,
+      place:              self.place      || '',
+      nb_person:          self.nb_person  || 0,
+      nb_child:           self.nb_child   || 0,
+
+      bride_first_name:   self.bride_first_name,
+      bride_last_name:    self.bride_last_name,
+      bride_phone_number: self.bride_phone_number || '',
+      bride_email:        self.bride_email        || '',
+                       
+      groom_first_name:   self.groom_first_name,
+      groom_last_name:    self.groom_last_name,
+      groom_phone_number: self.groom_phone_number || '',
+      groom_email:        self.groom_email        || '',
+            
+      religion:           self.religion           || '',
+      place_type:         self.place_type         || '',
+      desired_atmosphere: self.desired_atmosphere || '',
+      
+      note:               self.note          || '',
+      bride_photo:        self.bride_photo   || '',
+      groom_photo:        self.groom_photo   || '',
+      wedding_photo:      self.wedding_photo || '',
+      
       services:   self.services
     } 
     
   end
+  
+  private 
+  def add_services
+    self.services = Service.all
+    #self.wedding_photo = 'http://img571.imageshack.us/img571/984/1059822coloringpageoutl.jpg' 
+    #self.groom_photo   =
+    #self.bride_photo   =
+
+  end
+
 end

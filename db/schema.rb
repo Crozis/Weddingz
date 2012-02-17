@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120211133727) do
+ActiveRecord::Schema.define(:version => 20120217104441) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(:version => 20120211133727) do
     t.text     "description"
     t.string   "front_picture"
     t.text     "price"
+    t.text     "summary"
   end
 
   create_table "services_weddings", :force => true do |t|
@@ -85,14 +86,28 @@ ActiveRecord::Schema.define(:version => 20120211133727) do
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
   create_table "weddings", :force => true do |t|
-    t.integer  "budget",     :default => 0
+    t.integer  "budget",             :default => 0
     t.string   "place"
-    t.integer  "nb_person",  :default => 0
-    t.integer  "nb_child",   :default => 0
+    t.integer  "nb_person",          :default => 0
+    t.integer  "nb_child",           :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name"
-    t.boolean  "activated",  :default => false
+    t.boolean  "activated",          :default => false
+    t.string   "bride_first_name"
+    t.string   "bride_last_name"
+    t.string   "bride_phone_number"
+    t.string   "bride_email"
+    t.string   "groom_first_name"
+    t.string   "groom_last_name"
+    t.string   "groom_phone_number"
+    t.string   "groom_email"
+    t.string   "wedding_photo"
+    t.string   "groom_photo"
+    t.string   "bride_photo"
+    t.integer  "religion"
+    t.string   "place_type"
+    t.string   "desired_atmosphere"
+    t.text     "note"
   end
 
 end
