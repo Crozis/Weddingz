@@ -8,6 +8,7 @@ require File.dirname(__FILE__) + '/services_seed/florists_seed.rb'
 require File.dirname(__FILE__) + '/services_seed/places_seed.rb'
 require File.dirname(__FILE__) + '/services_seed/caterer_seed.rb'
 require File.dirname(__FILE__) + '/services_seed/photographs_seed.rb'
+require File.dirname(__FILE__) + '/services_seed/animator_seed.rb'
 
 client    = Users::Client.create(username: 'client', password: 'password')
 organizer = Users::Organizer.create(username: 'organizer', password: 'password')
