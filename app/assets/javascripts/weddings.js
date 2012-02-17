@@ -55,15 +55,21 @@ $(document).ready(function() {
            success  : function(result) {
               $('#content .activated_services').empty();
               $('#content .disabled_services').empty();
+              if(result.activated_services.length === 0) {
+                $('#content .activated_services').append("<li class=\"no_data\">Aucun service pré-séléctionné</li>");              
+              }
               _.each(result.activated_services, function(service){
                 $('#content .activated_services').append(activated_template(service));
               });
+              if(result.disabled_services.length === 0) {
+                $('#content .disabled_services').append("<li class=\"no_data\">Aucun service mis de de côté</li>");              
+              }
               _.each(result.disabled_services, function(service){
                 $('#content .disabled_services').append(disabled_template(service));
               });
               refreshButton();
               refreshToggler();
-                refreshSlideshow();
+              refreshSlideshow();
            }
         }); 
         refreshToggler();
