@@ -13,6 +13,7 @@ class Service < ActiveRecord::Base
       name:          self.name,
       phone_number:  self.phone_number,
       address:       self.address,
+      summary:       self.summary,
       type:          self.service_type.name,
       description:   self.description,
       price:         self.price,
