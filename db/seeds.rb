@@ -1,21 +1,13 @@
 # Encoding: UTF-8
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
 
-caterer_type        = ServiceType.create(name: 'Traiteurs')
 accomodation_type   = ServiceType.create(name: 'Hébergements')
-photographs_type    = ServiceType.create(name: 'Photographes')
 animation_type      = ServiceType.create(name: 'Animations')
 decoration_type     = ServiceType.create(name: 'Décorations')
 
 require File.dirname(__FILE__) + '/services_seed/florists_seed.rb'
 require File.dirname(__FILE__) + '/services_seed/places_seed.rb'
 require File.dirname(__FILE__) + '/services_seed/caterer_seed.rb'
+require File.dirname(__FILE__) + '/services_seed/photographs_seed.rb'
 
 client    = Users::Client.create(username: 'client', password: 'password')
 organizer = Users::Organizer.create(username: 'organizer', password: 'password')
@@ -37,7 +29,8 @@ wedding   = Wedding.create(budget:             4000,
                            
                            religion:           'Catholique',
                            place_type:         'Plage',
-                           desired_atmosphere: 'Petit commité')
+                           desired_atmosphere: 'Petit commité',
+                           wedding_photo:       'http://img705.imageshack.us/img705/2356/screenshot20120217at112.png')
                                  
 
 client2    = Users::Client.create(username: 'client2', password: 'password')
