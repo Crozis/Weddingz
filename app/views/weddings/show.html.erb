@@ -28,8 +28,10 @@
             <h3><%= serv.name %></h3>
             <button class="no_button" data-action="activate" data-value="false">Mettre de côté</button>
           </div>
-          <img class="front_picture" src="<%= serv.front_picture %>" />  
-          <div class="toggler_content">
+          <div class="middle">
+              <img class="front_picture" src="<%= serv.front_picture %>" />
+              <div class="summary"><%= serv.summary %></div>
+          </div>          <div class="toggler_content">
             <div class="price"><%= serv.price %></div>
             <div class='galery'>
               <% serv.pictures_url.split(';').each do |pic| %>
@@ -38,6 +40,7 @@
             </div>
             <div class="more">
               <div class="address"><%= serv.address %></div>
+              <div class="description"><%= serv.description %></div>
             </div>
           </div>
           <div class="click_toggler more_info"></div>
@@ -53,7 +56,10 @@
             <h3><%= serv.name %></h3>
             <button class="no_button" data-action="activate" data-value="true">Activer</button>
           </div>
-          <img class="front_picture" src="<%= serv.front_picture %>" />  
+          <div class="middle">
+              <img class="front_picture" src="<%= serv.front_picture %>" />
+              <div class="summary"><%= serv.summary %></div>
+          </div>
           <div class="toggler_content">
             <div class="price"><%= serv.price %></div>
             <div class='galery'>
@@ -63,6 +69,7 @@
             </div>
             <div class="more">
               <div class="address"><%= serv.address %></div>
+              <div class="description"><%= serv.description %></div>
             </div>
           </div>
           <div class="click_toggler more_info"></div>
@@ -79,7 +86,11 @@
       <h3>{{name}}</h3>
       <button class="no_button" data-action="activate" data-value ="false">Mettre de côté</button>
     </div>
-    <img class="front_picture" src="{{front_picture}}" />  
+    <div class="middle">
+        <img class="front_picture" src="{{front_picture}}" />
+        <div class="summary">{{summary}}</div>
+    </div>
+    <img class="front_picture" src="{{front_picture}}" />
     <div class="toggler_content">
       <div class="price">{{price}}</div>
       <div class='galery'>
@@ -89,7 +100,7 @@
       </div>
       <div class="more">
         <div class="address">{{address}}</div>
-        <div class="description">{{service}}</div>
+        <div class="description">{{description}}</div>
       </div>
     </div>
     <div class="click_toggler more_info"></div>
@@ -104,7 +115,10 @@
       <h3>{{name}}</h3>
       <button class="no_button" data-action="activate" data-value ="true">Activer</button>
     </div>
-    <img class="front_picture" src="{{front_picture}}" />  
+    <div class="middle">
+        <img class="front_picture" src="{{front_picture}}" />
+        <div class="summary">{{summary}}</div>
+    </div>
     <div class="toggler_content">
       <div class="price">{{price}}</div>
       <div class='galery'>
@@ -114,7 +128,7 @@
       </div>
       <div class="more">
         <div class="address">{{address}}</div>
-        <div class="description">{{service}}</div>
+        <div class="description">{{description}}</div>
       </div>
     </div>
     <div class="click_toggler more_info"></div>
