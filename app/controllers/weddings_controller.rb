@@ -1,6 +1,6 @@
 # encoding: utf-8
 class WeddingsController < ApplicationController
-  before_filter :authenticate_user!, :except => [:activate, :activated, :show, :index]
+  before_filter :authenticate_user!, :except => [:activate, :activated, :show, :index, :create, :update]
   
   def activate
     weddings = Wedding.all

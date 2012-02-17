@@ -15,5 +15,21 @@ class ServicesWedding < ActiveRecord::Base
     services.collect!{|service_wedding| service_wedding.service}
     services.reject{|service| service.service_type.id != service_type_id.to_i}
   end
-  
+
+  def as_json(options)
+    {
+      id:            self.id,
+      activated:     self.activated,
+      name:          self.service.name,
+      phone_number:  self.service.phone_number,
+      address:       self.service.address,
+      summary:       self.service.summary,
+      type:          self.service.service_type.name,
+      description:   self.service.description,
+      price:         self.service.price,
+      front_picture: self.service.front_picture,
+      pictures_url:  self.service.pictures_url.split(';')
+    }
+  end
+
 end

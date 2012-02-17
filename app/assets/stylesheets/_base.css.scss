@@ -266,7 +266,7 @@
     font-size: 1em;
   }
   .toggler_content {
-    max-height: 400px;
+    max-height: 800px;
     @include transition-out(0.5s);
   }
 }

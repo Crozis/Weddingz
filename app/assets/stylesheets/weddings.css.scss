@@ -111,6 +111,49 @@ body {
   }
   img {
     display: inline-block;
-    max-height: 15em;
+    max-height: 250px;
   }
+}
+
+.slideshow {
+  position   : relative;
+  overflow: auto;
+  height: 250px;
+  background-color: #252525;
+}
+.slideshow .slidesContainer {
+  margin     : 0 auto;
+  max-width  : 550px;
+  position   : absolute;
+}
+
+.slideshow .slidesContainer .slide {
+/* reduit de 20 pixels la div #slidesContainer pour permettre d'afficher la barre de scroll */
+  margin : 0 auto;
+
+}
+.control {
+  display    : block;
+  width      : 39px;
+  height     : 250px;
+  text-indent: -10000px;
+  position   : absolute;
+  cursor     : pointer;
+}
+.leftControl {
+  top       : 0;
+  left      : 0;
+  background: transparent image_url('control_left.jpg') no-repeat 0 0;
+  z-index: 10;
+}
+.rightControl {
+  top       : 0;
+  right     : 0;
+  background: transparent image_url("control_right.jpg") no-repeat 0 0;
+  z-index: 10;
+}
+
+.slide img {
+  display: table-cell !important;
+  margin : auto;
 }

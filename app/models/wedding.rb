@@ -54,7 +54,7 @@ class Wedding < ActiveRecord::Base
       groom_photo:        self.groom_photo   || '',
       wedding_photo:      self.wedding_photo || '',
       
-      services:   self.services
+      services:   self.services_weddings
     } 
     
   end

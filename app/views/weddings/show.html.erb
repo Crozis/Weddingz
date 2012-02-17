@@ -6,7 +6,7 @@
 <script type="text/javascript">
   wedding_id = <%= @wedding.id %>
 </script>
-<h1><%= "#{@wedding.bride_first_name} & #{@wedding.groom_first_name}" %></h1>
+<h1><%= "#{@wedding.bride_first_name} et #{@wedding.groom_first_name}" %></h1>
 <div id="wrapper">
   <div id="left">
     <div>
@@ -35,10 +35,12 @@
           </div>          
           <div class="toggler_content">
             <div class="price"><%= serv.price %></div>
-            <div class='galery'>
+            <div class="slideshow">
+              <div class="slidesContainer">
               <% serv.pictures_url.split(';').each do |pic| %>
-                <img src="<%= pic %>" />
+                <div class="slide"><img src="<%= pic %>" /></div>
               <% end %>
+              </div>
             </div>
             <div class="more">
               <div class="address"><%= serv.address %></div>
@@ -64,10 +66,12 @@
           </div>
           <div class="toggler_content">
             <div class="price"><%= serv.price %></div>
-            <div class='galery'>
+            <div class="slideshow">
+              <div class="slidesContainer">
               <% serv.pictures_url.split(';').each do |pic| %>
-                <img src="<%= pic %>" />
+                <div class="slide"><img src="<%= pic %>" /></div>
               <% end %>
+              </div>
             </div>
             <div class="more">
               <div class="address"><%= serv.address %></div>
@@ -95,10 +99,12 @@
     </div>
     <div class="toggler_content">
       <div class="price">{{price}}</div>
-      <div class='galery'>
-        {{#each pictures_url}}
-          <img src="{{this}}" />
-        {{/each}}
+      <div class="slideshow">
+        <div class="slidesContainer">
+          {{#each pictures_url}}
+            <div class="slide"><img src="{{this}}" /></div>
+          {{/each}}
+        </div>
       </div>
       <div class="more">
         <div class="address">{{address}}</div>
@@ -123,10 +129,12 @@
     </div>
     <div class="toggler_content">
       <div class="price">{{price}}</div>
-      <div class='galery'>
-        {{#each pictures_url}}
-          <img src="{{this}}" />
-        {{/each}}
+      <div class="slideshow">
+        <div class="slidesContainer">
+          {{#each pictures_url}}
+            <div class="slide"><img src="{{this}}" /></div>
+          {{/each}}
+        </div>
       </div>
       <div class="more">
         <div class="address">{{address}}</div>
@@ -142,4 +150,84 @@
         $('.togglable .click_toggler').click(function () {
             $(this).closest('.togglable').toggleClass('open');
         });
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+   $('.slidesContainer').css('overflow', 'hidden');
+
+  $('.slideshow').each(function() {
+      var slideshow = this;
+    	//Configuration
+		  var retour = true;
+		  var tempsTransition = 1000;
+	  	var tempsAttente = 6000;
+			
+		  var currentPosition = 0;
+		  var slideWidth = 560;
+		  var slides = $(slideshow).find('.slide');
+		  var numberOfSlides = slides.length;
+		  var interval;
+      
+      // Supprime la scrollbar en JS
+    
+      // Attribue  #slideInner  à toutes les div .slide
+      slides.wrapAll('<div class="slideInner"></div>')
+        // Float left to display horizontally, readjust .slides width
+    	.css({
+          'float' : 'left',
+          'width' : slideWidth
+        });
+    
+      // Longueur de #slideInner égale au total de la longueur de tous les slides
+      $(slideshow).find('.slideInner').css('width', slideWidth * numberOfSlides);
+    
+      // Insert controls in the DOM
+      $(slideshow).prepend('<span class="control leftControl">Précédent</span>')
+                   .append('<span class="control rightControl">Suivant</span>');
+    
+    
+      
+      // Hide left arrow control on first load
+      manageControls(currentPosition);
+    
+      //Crée un écouteur d'évènement de type clic sur les classes .control
+      $(slideshow).find('.control').bind('click', function(){
+        // Determine la nouvelle position
+      	currentPosition = ($(this).hasClass('rightControl') ? currentPosition + 1 : currentPosition - 1);
+          
+      	if(currentPosition == numberOfSlides && retour == false ){
+      		currentPosition--;
+      		pause();
+      	}  	
+      	// Cache ou montre les controles
+        manageControls(currentPosition);
+        // Fais bouger le slide
+        $(slideshow).find('.slideInner').animate({
+          'marginLeft' : slideWidth*(-currentPosition)
+        },tempsTransition);
+      });
+    
+      // manageControls: Cache ou montre les flêches de controle en fonction de la position courante
+      function manageControls(position){
+        // Cache la fleche "précédent" si on est sur le premier slide
+      	if(position==0){ $(slideshow).find('.leftControl').hide() } else{ $(slideshow).find('.leftControl').show() }
+      	// Cache la fleche "suivant" si on est sur le dernier slide (et que le retour automatique n'est pas activé)
+        if(position==numberOfSlides-1 && retour == false){
+    	   	$(slideshow).find('.rightControl').hide();
+      	} else {
+      		$(slideshow).find('.rightControl').show();
+      	}
+        if(position == numberOfSlides && retour == true){
+          currentPosition = 0;
+    	 	  $(slideshow).find('.leftControl').hide();
+    	  }
+      }
+      function suivant(){
+      	$(slideshow).find('.rightControl').click();
+    	}
+  });
+
+});
 </script>
