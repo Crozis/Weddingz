@@ -22,66 +22,74 @@
   <div id="content">
     <h2>Services pré-sélectionnés</h2>
     <ul class="activated_services">
-      <% @activated_services.each do |serv| %>
-        <li data-id="<%= serv.id %>">
-        <div class="togglable">
-          <div class="top">
-            <h3><%= serv.name %></h3>
-            <button class="no_button" data-action="activate" data-value="false">Mettre de côté</button>
-          </div>
-          <div class="middle">
-              <img class="front_picture" src="<%= serv.front_picture %>" />
-              <div class="summary"><%= serv.summary %></div>
-          </div>          
-          <div class="toggler_content">
-            <div class="price"><%= serv.price %></div>
-            <div class="slideshow">
-              <div class="slidesContainer">
-              <% serv.pictures_url.split(';').each do |pic| %>
-                <div class="slide"><img src="<%= pic %>" /></div>
-              <% end %>
+      <% if @activated_services.empty? %>
+        <li class="no_data">Aucun service pré-séléctionné</li>
+      <% else %>
+          <% @activated_services.each do |serv| %>
+            <li data-id="<%= serv.id %>">
+            <div class="togglable">
+              <div class="top">
+                <h3><%= serv.name %></h3>
+                <button class="no_button" data-action="activate" data-value="false">Mettre de côté</button>
               </div>
+              <div class="middle">
+                  <img class="front_picture" src="<%= serv.front_picture %>" />
+                  <div class="summary"><%= serv.summary %></div>
+              </div>          
+              <div class="toggler_content">
+                <div class="slideshow">
+                  <div class="slidesContainer">
+                  <% serv.pictures_url.split(';').each do |pic| %>
+                    <div class="slide"><img src="<%= pic %>" /></div>
+                  <% end %>
+                  </div>
+                </div>
+                <div class="more">
+                    <div class="price"><%= serv.price %></div>
+                  <div class="address"><%= serv.address %></div>
+                  <div class="description"><%= serv.description %></div>
+                </div>
+              </div>
+              <div class="click_toggler more_info"></div>
             </div>
-            <div class="more">
-              <div class="address"><%= serv.address %></div>
-              <div class="description"><%= serv.description %></div>
-            </div>
-          </div>
-          <div class="click_toggler more_info"></div>
-        </div>
-    </li>
-      <% end %>
+        </li>
+          <% end %>
+        <% end %>
     </ul>
     <h2>Services mis de côtés</h2>
      <ul class="disabled_services">
-      <% @disabled_services.each do |serv| %>
-        <li data-id="<%= serv.id %>"><div class="togglable">
-          <div class="top">
-            <h3><%= serv.name %></h3>
-            <button class="no_button" data-action="activate" data-value="true">Activer</button>
-          </div>
-          <div class="middle">
-              <img class="front_picture" src="<%= serv.front_picture %>" />
-              <div class="summary"><%= serv.summary %></div>
-          </div>
-          <div class="toggler_content">
-            <div class="price"><%= serv.price %></div>
-            <div class="slideshow">
-              <div class="slidesContainer">
-              <% serv.pictures_url.split(';').each do |pic| %>
-                <div class="slide"><img src="<%= pic %>" /></div>
-              <% end %>
+      <% if @disabled_services.empty? %>
+        <li class="no_data">Aucun service mis de de côté</li>
+      <% else %>
+          <% @disabled_services.each do |serv| %>
+            <li data-id="<%= serv.id %>"><div class="togglable">
+              <div class="top">
+                <h3><%= serv.name %></h3>
+                <button class="no_button" data-action="activate" data-value="true">Activer</button>
               </div>
+              <div class="middle">
+                  <img class="front_picture" src="<%= serv.front_picture %>" />
+                  <div class="summary"><%= serv.summary %></div>
+              </div>
+              <div class="toggler_content">
+                <div class="slideshow">
+                  <div class="slidesContainer">
+                  <% serv.pictures_url.split(';').each do |pic| %>
+                    <div class="slide"><img src="<%= pic %>" /></div>
+                  <% end %>
+                  </div>
+                </div>
+                <div class="more">
+                    <div class="price"><%= serv.price %></div>
+                  <div class="address"><%= serv.address %></div>
+                  <div class="description"><%= serv.description %></div>
+                </div>
+              </div>
+              <div class="click_toggler more_info"></div>
             </div>
-            <div class="more">
-              <div class="address"><%= serv.address %></div>
-              <div class="description"><%= serv.description %></div>
-            </div>
-          </div>
-          <div class="click_toggler more_info"></div>
-        </div>
-        </li>
-      <% end %>
+            </li>
+          <% end %>
+        <% end %>
     </ul>
   </div>
 </div>
@@ -98,7 +106,6 @@
         <div class="summary">{{summary}}</div>
     </div>
     <div class="toggler_content">
-      <div class="price">{{price}}</div>
       <div class="slideshow">
         <div class="slidesContainer">
           {{#each pictures_url}}
@@ -107,6 +114,7 @@
         </div>
       </div>
       <div class="more">
+          <div class="price">{{price}}</div>
         <div class="address">{{address}}</div>
         <div class="description">{{description}}</div>
       </div>
@@ -128,7 +136,6 @@
         <div class="summary">{{summary}}</div>
     </div>
     <div class="toggler_content">
-      <div class="price">{{price}}</div>
       <div class="slideshow">
         <div class="slidesContainer">
           {{#each pictures_url}}
@@ -137,6 +144,7 @@
         </div>
       </div>
       <div class="more">
+          <div class="price">{{price}}</div>
         <div class="address">{{address}}</div>
         <div class="description">{{description}}</div>
       </div>
@@ -165,7 +173,7 @@ $(document).ready(function(){
 	  	var tempsAttente = 6000;
 			
 		  var currentPosition = 0;
-		  var slideWidth = 560;
+		  var slideWidth = 510;
 		  var slides = $(slideshow).find('.slide');
 		  var numberOfSlides = slides.length;
 		  var interval;
