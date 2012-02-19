@@ -57,13 +57,9 @@ class Wedding < ActiveRecord::Base
   
   private 
   def add_services
-    debugger
     self.service_types.each do |st|
       self.services << Service.where(:service_type_id => st.id)
     end
-    #self.wedding_photo = 'http://img571.imageshack.us/img571/984/1059822coloringpageoutl.jpg' 
-    #self.groom_photo   =
-    #self.bride_photo   =
   end
 
 end
