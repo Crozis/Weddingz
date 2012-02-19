@@ -5,12 +5,14 @@ class Wedding < ActiveRecord::Base
   
   has_one :client, :class_name => "Users::Client"
   has_one :organizer, :class_name => "Users::Organizer"  
-
+  
+  has_and_belongs_to_many :service_types
+  
   before_create :add_services
   
-  def service_types
-    self.services.map(&:service_type).uniq!
-  end
+#   def service_types
+#     self.services.map(&:service_type).uniq!
+#   end
   
   def services_by service_type
     if service_type.kind_of? Integer
@@ -21,13 +23,6 @@ class Wedding < ActiveRecord::Base
   end
   
   def as_json(options)
-    # _services = '['
-    # self.services.each do |service|
-    #   _services << ActiveSupport::JSON.encode(service.to_json)
-    #   _services << ','
-    # end
-    # _services[_services.length - 1] = ']'
-    # _services = ActiveSupport::JSON.decode(_services)
     {
       id:                 self.id,
       budget:             self.budget     || 0,
@@ -54,14 +49,18 @@ class Wedding < ActiveRecord::Base
       groom_photo:        self.groom_photo   || '',
       wedding_photo:      self.wedding_photo || '',
       
-      services:   self.services_weddings
+      service_types:      self.service_types,
+      services:           self.services_weddings
     } 
     
   end
   
   private 
   def add_services
-    self.services = Service.all
+    debugger
+    self.service_types.each do |st|
+      self.services << Service.where(:service_type_id => st.id)
+    end
     #self.wedding_photo = 'http://img571.imageshack.us/img571/984/1059822coloringpageoutl.jpg' 
     #self.groom_photo   =
     #self.bride_photo   =

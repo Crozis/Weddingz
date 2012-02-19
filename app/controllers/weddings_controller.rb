@@ -43,8 +43,8 @@ class WeddingsController < ApplicationController
     @wedding = Wedding.find(params[:id])
     if !current_user.nil? && current_user.is_client?
       @wedding = current_user.wedding
-      @activated_services = ServicesWedding.activated_services(@wedding.id, @wedding.service_types[0].id ) || []
-      @disabled_services  = ServicesWedding.disabled_services(@wedding.id, @wedding.service_types[0].id) || []
+      @activated_services = ServicesWedding.activated_services(@wedding.id, @wedding.service_types.first.id ) || [] # For first service_type
+      @disabled_services  = ServicesWedding.disabled_services(@wedding.id, @wedding.service_types.first.id) || []   # For first service_type
     end
     respond_to do |format|
       format.html # show.html.erb
@@ -72,7 +72,9 @@ class WeddingsController < ApplicationController
   # POST /weddings.json
   def create
     @wedding = Wedding.new(params[:wedding])
-
+    params[:wedding][:service_type_ids].each do |service_type_id|
+      @wedding.service_types << ServiceType.find(service_type_id)
+    end
     respond_to do |format|
       if @wedding.save
         format.html { redirect_to @wedding, notice: 'Wedding was successfully created.' }

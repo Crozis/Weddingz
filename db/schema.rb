@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120217104441) do
+ActiveRecord::Schema.define(:version => 20120219120509) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -35,6 +35,11 @@ ActiveRecord::Schema.define(:version => 20120217104441) do
     t.string   "image_url"
   end
 
+  create_table "service_types_weddings", :id => false, :force => true do |t|
+    t.integer "service_type_id"
+    t.integer "wedding_id"
+  end
+
   create_table "services", :force => true do |t|
     t.string   "phone_number"
     t.string   "address"
@@ -47,6 +52,16 @@ ActiveRecord::Schema.define(:version => 20120217104441) do
     t.string   "front_picture"
     t.text     "price"
     t.text     "summary"
+  end
+
+  create_table "services_type_wedding", :id => false, :force => true do |t|
+    t.integer "service_type_id"
+    t.integer "wedding_id"
+  end
+
+  create_table "services_types_wedding", :id => false, :force => true do |t|
+    t.integer "services_type_id"
+    t.integer "wedding_id"
   end
 
   create_table "services_weddings", :force => true do |t|

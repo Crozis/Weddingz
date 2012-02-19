@@ -31,7 +31,11 @@ wedding   = Wedding.create(budget:             4000,
                            religion:           'Catholique',
                            place_type:         'Plage',
                            desired_atmosphere: 'Petit commité',
-                           wedding_photo:       'http://img705.imageshack.us/img705/2356/screenshot20120217at112.png')
+                           wedding_photo:       'http://img705.imageshack.us/img705/2356/screenshot20120217at112.png', 
+                           service_types: [ServiceType.where(:name => 'Fleuristes').first,
+                                           ServiceType.where(:name => 'Traiteurs').first,
+                                           ServiceType.where(:name => 'Lieux').first,
+                                           ServiceType.where(:name => 'Photographes').first])
                                  
 
 client2    = Users::Client.create(username: 'client2', password: 'password')
@@ -53,5 +57,8 @@ wedding2 = Wedding.create(budget:             4000,
                             
                           religion:           'Catholique',
                           place_type:         'Château',
-                          desired_atmosphere: 'Festif')
+                          desired_atmosphere: 'Festif',
+                           service_types: [ServiceType.where(:name => 'Fleuristes').first,
+                                           ServiceType.where(:name => 'Traiteurs').first,
+                                           ServiceType.where(:name => 'Lieux').first])
                                  

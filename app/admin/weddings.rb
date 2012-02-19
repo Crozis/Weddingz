@@ -38,7 +38,7 @@ ActiveAdmin.register Wedding do
 
     end
     f.inputs "Service" do
-      f.input :services, :as => :check_boxes
+      f.input :service_types, :as => :check_boxes
     end
     f.buttons
   end
