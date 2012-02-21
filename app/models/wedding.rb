@@ -70,12 +70,12 @@ class Wedding < ActiveRecord::Base
   end
   
   private
-  def retrieve_service_types(_service_weddings, service_type_id)
-    if service_type_id.nil?
+  def retrieve_service_types(_service_weddings, _service_type_id)
+    if _service_type_id.nil?
       _service_weddings = _service_weddings.collect{ |service_wedding| service_wedding.service } # Collect all the service
     else
-      # Reject services with bad service type
-      _service_weddings = _service_weddings.reject{ |service_wedding| service_wedding.service_type.id != service_type_id.to_i } 
+      # Reject services with bad service type id
+      _service_weddings = _service_weddings.reject{ |service_wedding| service_wedding.service_type.id != _service_type_id.to_i } 
       _service_weddings = _service_weddings.collect{ |service_wedding| service_wedding.service} # Collect all the service
     end
     _service_weddings  
