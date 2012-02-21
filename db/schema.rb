@@ -43,27 +43,17 @@ ActiveRecord::Schema.define(:version => 20120221185544) do
   end
 
   create_table "services", :force => true do |t|
+    t.string   "name"
     t.string   "phone_number"
     t.string   "address"
-    t.text     "pictures_url"
-    t.string   "name"
+    t.text     "front_picture"
+    t.string   "pictures_url"
+    t.text     "price"
+    t.text     "description"
+    t.text     "summary"
     t.integer  "service_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "description"
-    t.string   "front_picture"
-    t.text     "price"
-    t.text     "summary"
-  end
-
-  create_table "services_type_wedding", :id => false, :force => true do |t|
-    t.integer "service_type_id"
-    t.integer "wedding_id"
-  end
-
-  create_table "services_types_wedding", :id => false, :force => true do |t|
-    t.integer "services_type_id"
-    t.integer "wedding_id"
   end
 
   create_table "services_weddings", :force => true do |t|
