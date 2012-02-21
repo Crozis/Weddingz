@@ -1,4 +1,6 @@
 class ServiceType < ActiveRecord::Base
   has_many :services
-  has_and_belongs_to_many :weddings
+
+  has_many :service_types_weddings
+  has_many :weddings, :through => :service_types_weddings
 end

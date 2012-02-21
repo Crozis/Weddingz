@@ -6,14 +6,11 @@ class Wedding < ActiveRecord::Base
   has_one :client, :class_name => "Users::Client"
   has_one :organizer, :class_name => "Users::Organizer"  
   
-  has_and_belongs_to_many :service_types
-  
+  has_many :service_types_weddings
+  has_many :service_types, :through => :service_types_weddings
+
   before_create :add_services
-  
-#   def service_types
-#     self.services.map(&:service_type).uniq!
-#   end
-  
+    
   def services_by service_type
     if service_type.kind_of? Integer
       self.services.reject{|service| service.id != service_type}
@@ -22,13 +19,31 @@ class Wedding < ActiveRecord::Base
     end
   end
   
+  def activated_services_types
+    self.service_types_weddings.reject{|service_types_wedding| !service_types_wedding.activated?}
+  end
+
+  def disabled_services_types
+    self.service_types_weddings.reject{|service_types_wedding| service_types_wedding.activated?}
+  end
+  
+  def activated_services(service_type_id=nil)
+     _service_weddings = self.services_weddings.reject{ |service_wedding| !service_wedding.activated? } # Reject all disabled services
+     retrieve_service_types(_service_weddings, service_type_id)
+  end
+
+  def disabled_services(service_type_id=nil)
+     _service_weddings = self.services_weddings.reject{ |service_wedding| service_wedding.activated? } # Reject all disabled services
+     retrieve_service_types(_service_weddings, service_type_id)
+  end  
+  
   def as_json(options)
     {
       id:                 self.id,
       budget:             self.budget     || 0,
       place:              self.place      || '',
       nb_person:          self.nb_person  || 0,
-      nb_child:           self.nb_child   || 0,
+      has_child:          self.has_child  || false,
 
       bride_first_name:   self.bride_first_name,
       bride_last_name:    self.bride_last_name,
@@ -49,17 +64,24 @@ class Wedding < ActiveRecord::Base
       groom_photo:        self.groom_photo   || '',
       wedding_photo:      self.wedding_photo || '',
       
-      service_types:      self.service_types,
-      services:           self.services_weddings
+      service_types:      self.service_types_weddings
     } 
     
   end
   
-  private 
-  def add_services
-    self.service_types.each do |st|
-      self.services << Service.where(:service_type_id => st.id)
+  private
+  def retrieve_service_types(_service_weddings, service_type_id)
+    if service_type_id.nil?
+      _service_weddings = _service_weddings.collect{ |service_wedding| service_wedding.service } # Collect all the service
+    else
+      # Reject services with bad service type
+      _service_weddings = _service_weddings.reject{ |service_wedding| service_wedding.service_type.id != service_type_id.to_i } 
+      _service_weddings = _service_weddings.collect{ |service_wedding| service_wedding.service} # Collect all the service
     end
+    _service_weddings  
   end
-
+  
+  def add_services
+    self.services << Service.all
+  end
 end

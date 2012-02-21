@@ -5,40 +5,41 @@ ActiveAdmin.register Wedding do
     column :place
     column :budget
     column :nb_person
-    column :nb_child
+    column :has_child
     default_actions
   end
 
-
   form do |f|
-    f.inputs "Mariage" do
-      f.input :budget
-      f.input :place
-      f.input :nb_person
-      f.input :nb_child
-
-      f.input :bride_first_name
-      f.input :bride_last_name
-      f.input :bride_phone_number
-      f.input :bride_email
-      
-      f.input :groom_first_name
-      f.input :groom_last_name  
-      f.input :groom_phone_number
-      f.input :groom_email   
-      
-      f.input :religion       
-      f.input :place_type
-      f.input :desired_atmosphere
-
-      f.input :note
-      f.input :bride_photo
-      f.input :groom_photo
-      f.input :wedding_photo
-
+    f.inputs "Informations générales" do
+      f.input :budget             , :label => "Budget"
+      f.input :place              , :label => "Lieu"
+      f.input :nb_person          , :label => "Nombre de personnes"
+      f.input :has_child          , :label => "Avec enfant"
     end
-    f.inputs "Service" do
-      f.input :service_types, :as => :check_boxes
+    f.inputs "La future mariée" do
+      f.input :bride_first_name   , :label => "Prénom de la futur mariée"
+      f.input :bride_last_name    , :label => "Nom de la futur mariée"
+      f.input :bride_phone_number , :label => "N° de téléphone"
+      f.input :bride_email        , :label => "E-mail"
+    end
+    
+    f.inputs "Le futur marié" do
+      f.input :groom_first_name   , :label => "Prénom du futur marié"
+      f.input :groom_last_name    , :label => "Nom du futur marié"
+      f.input :groom_phone_number , :label => "N° de téléphone"
+      f.input :groom_email        , :label => "E-mail"
+    end
+    
+    f.inputs "Informations complémentaire" do
+      f.input :religion           , :label => "Religion"
+      f.input :place_type         , :label => "Type de lieu"
+      f.input :desired_atmosphere , :label => "Atmosphère désiré"
+
+      f.input :note               , :label => "Note"
+      f.input :bride_photo        , :label => "Photo de la mariée"
+      f.input :groom_photo        , :label => "Photo du marié"
+      f.input :wedding_photo      , :label => "Photo du mariage"
+
     end
     f.buttons
   end
@@ -51,20 +52,24 @@ ActiveAdmin.register Wedding do
           table do
             tbody do  
               tr do
+                th "Nom"
+                td wedding.budget
+              end
+              tr do
                 th "Budget"
                 td wedding.budget
               end
               tr do
-                th "Place"
+                th "Lieu"
                 td wedding.place
               end
               tr do
-                th "NB Person"
+                th "Nombre de personnes"
                 td wedding.nb_person
               end
               tr do
-                th "NB Child"
-                td wedding.nb_child
+                th "Avec enfants"
+                td wedding.has_child
               end
               tr do
                 th "Organizer"
@@ -76,6 +81,27 @@ ActiveAdmin.register Wedding do
               end
             end
           end
+        end
+      end
+    end
+  end
+  
+  controller do
+    def create
+      ids = params[:wedding][:service_type_ids]
+      params[:wedding].delete(:service_type_ids)
+      @wedding = Wedding.new(params[:wedding])
+      
+      ServiceType.all.each do |service_type|
+        @wedding.service_types_weddings << ServiceTypesWedding.create(:service_type_id => service_type.id, 
+                                                                      :wedding_id      => @wedding.id,
+                                                                      :activated    => ids.include?(service_type.id.to_s))
+      end
+      respond_to do |format|
+        if @wedding.save
+          format.html { redirect_to admin_wedding_path(@wedding), notice: 'Wedding was successfully created.' }
+        else
+          format.html { redirect_to new_admin_wedding_path }
         end
       end
     end

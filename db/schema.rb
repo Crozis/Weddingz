@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120219120509) do
+ActiveRecord::Schema.define(:version => 20120221181503) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -33,11 +33,13 @@ ActiveRecord::Schema.define(:version => 20120219120509) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image_url"
+    t.string   "icon_url"
   end
 
-  create_table "service_types_weddings", :id => false, :force => true do |t|
+  create_table "service_types_weddings", :force => true do |t|
     t.integer "service_type_id"
     t.integer "wedding_id"
+    t.boolean "activated"
   end
 
   create_table "services", :force => true do |t|
@@ -104,7 +106,6 @@ ActiveRecord::Schema.define(:version => 20120219120509) do
     t.integer  "budget",             :default => 0
     t.string   "place"
     t.integer  "nb_person",          :default => 0
-    t.integer  "nb_child",           :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "activated",          :default => false
@@ -123,6 +124,7 @@ ActiveRecord::Schema.define(:version => 20120219120509) do
     t.string   "place_type"
     t.string   "desired_atmosphere"
     t.text     "note"
+    t.boolean  "has_child"
   end
 
 end

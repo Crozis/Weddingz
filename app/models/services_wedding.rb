@@ -3,6 +3,7 @@ class ServicesWedding < ActiveRecord::Base
 
   belongs_to :service
   belongs_to :wedding
+  has_one :service_type, :through => :service
   
   def self.activated_services(wedding_id, service_type_id) 
     services = where(:wedding_id => wedding_id, :activated => true)
@@ -15,7 +16,8 @@ class ServicesWedding < ActiveRecord::Base
     services.collect!{|service_wedding| service_wedding.service}
     services.reject{|service| service.service_type.id != service_type_id.to_i}
   end
-
+  
+  
   def as_json(options)
     {
       id:            self.id,

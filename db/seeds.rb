@@ -1,7 +1,6 @@
 # Encoding: UTF-8
 
 accomodation_type   = ServiceType.create(name: 'Hébergements')
-animation_type      = ServiceType.create(name: 'Animations')
 decoration_type     = ServiceType.create(name: 'Décorations')
 
 require File.dirname(__FILE__) + '/services_seed/florists_seed.rb'
@@ -15,7 +14,7 @@ organizer = Users::Organizer.create(username: 'organizer', password: 'password')
 wedding   = Wedding.create(budget:             4000, 
                            place:              "Nice", 
                            nb_person:          40, 
-                           nb_child:           0, 
+                           has_child:          false, 
                            client:             client, 
                            organizer:          organizer,
                            bride_first_name:   'Alice',
@@ -31,18 +30,14 @@ wedding   = Wedding.create(budget:             4000,
                            religion:           'Catholique',
                            place_type:         'Plage',
                            desired_atmosphere: 'Petit commité',
-                           wedding_photo:       'http://img705.imageshack.us/img705/2356/screenshot20120217at112.png', 
-                           service_types: [ServiceType.where(:name => 'Fleuristes').first,
-                                           ServiceType.where(:name => 'Traiteurs').first,
-                                           ServiceType.where(:name => 'Lieux').first,
-                                           ServiceType.where(:name => 'Photographes').first])
+                           wedding_photo:       'http://img705.imageshack.us/img705/2356/screenshot20120217at112.png')
                                  
 
 client2    = Users::Client.create(username: 'client2', password: 'password')
 wedding2 = Wedding.create(budget:             4000, 
                           place:              "Nice", 
                           nb_person:          200, 
-                          nb_child:           30, 
+                          has_child:          true, 
                           client:             client2,
                           organizer:          organizer,
                           bride_first_name:   'Julie',
@@ -62,3 +57,20 @@ wedding2 = Wedding.create(budget:             4000,
                                            ServiceType.where(:name => 'Traiteurs').first,
                                            ServiceType.where(:name => 'Lieux').first])
                                  
+ServiceType.all.each do |service_type|
+  if service_type.name == "Animations"
+    wedding.service_types_weddings << ServiceTypesWedding.create(:service_type => service_type, :activated => false)
+    wedding2.service_types_weddings << ServiceTypesWedding.create(:service_type => service_type, :activated => false)
+  else
+    wedding.service_types_weddings << ServiceTypesWedding.create(:service_type => service_type, :activated => true)
+    wedding2.service_types_weddings << ServiceTypesWedding.create(:service_type => service_type, :activated => true)
+  end
+end
+
+# [wedding, wedding2].each do |w|
+#   w.service_types_weddings.each do |service_types_wedding|
+#     if service_types_wedding.activated?
+#       w.services << Service.where(:service_type_id => service_types_wedding.service_type.id)
+#     end
+#   end
+# end
