@@ -8,7 +8,8 @@ footer {
 body {
   max-width: 70em;
   margin: auto;
-  background-color: #F5F5F5;
+  //background-color: #F5F5F5;
+  background: image_url("cross_scratches.png");
   h1 {
     font-family: Zapfino;
     margin-top: 1.5em !important;
@@ -24,7 +25,7 @@ body {
   border: 1px solid #AAA;
   border-left: 1px solid #333;
   @include radius(4px);
-  box-shadow: 1px 1px 0 white, -1px -1px 0 white;
+  box-shadow: 1px 1px 0 white, -1px -1px 0 #EEE;
   vertical-align: top;
 }
 
@@ -79,7 +80,7 @@ body {
       }
       &:first-child {
         border-top: none;
-        box-shadow: none;
+        //box-shadow: none;
       }
       &.selected:last-child {
         border-bottom: 1px solid black;
