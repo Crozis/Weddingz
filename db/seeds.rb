@@ -66,11 +66,3 @@ ServiceType.all.each do |service_type|
     wedding2.service_types_weddings << ServiceTypesWedding.create(:service_type => service_type, :activated => true)
   end
 end
-
-# [wedding, wedding2].each do |w|
-#   w.service_types_weddings.each do |service_types_wedding|
-#     if service_types_wedding.activated?
-#       w.services << Service.where(:service_type_id => service_types_wedding.service_type.id)
-#     end
-#   end
-# end
