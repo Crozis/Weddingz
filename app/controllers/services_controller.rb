@@ -1,5 +1,6 @@
 class ServicesController < ApplicationController
   before_filter :wedding
+
   # GET /services
   # GET /services.json
   def wedding
@@ -28,17 +29,24 @@ class ServicesController < ApplicationController
     end
   end
 
+
   def activate
     service_wedding = ServicesWedding.where(:wedding_id => params[:wedding_id], :service_id => params[:id]).first
-    service_wedding.activated = params[:activate]
-    if service_wedding.save
-      respond_to do |format|
-        format.html {render :nothing => true, :status => 'success'}
-      end
-    else 
-      respond_to do |format|
-        format.html {render :nothing => true, :status => 'error'}
-      end
+    service_wedding.activated = true
+    service_wedding.save
+    respond_to do |format|
+      format.html {render :nothing => true, :status => 'success'}
+      format.json {render :nothing => true, :status => 'success'}
+    end
+  end
+
+  def disable
+    service_wedding = ServicesWedding.where(:wedding_id => params[:wedding_id], :service_id => params[:id]).first
+    service_wedding.activated = false
+    service_wedding.save
+    respond_to do |format|
+      format.html {render :nothing => true, :status => 'success'}
+      format.json {render :nothing => true, :status => 'success'}
     end
   end
 

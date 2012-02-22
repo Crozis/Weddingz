@@ -41,12 +41,7 @@ class WeddingsController < ApplicationController
   # GET /weddings/1.json
   def show
     @wedding = Wedding.find(params[:id])
-    if !current_user.nil? && current_user.is_client?
-      @wedding = current_user.wedding
-    end
-    @activated_services = []
-    @disabled_services = []
-    
+
     service_type_id = params[:service_type_id] || @wedding.activated_services_types.first.id
     
     @activated_services = @wedding.activated_services(service_type_id)
