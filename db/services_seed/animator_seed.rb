@@ -2,7 +2,8 @@
 
 ############################################################ FLORISTS ############################################################
 
-animator_type = ServiceType.create(name: 'Animations')
+animator_type = ServiceType.create(name: 'Animations',
+                                   icon_url: 'http://img3.imageshack.us/img3/6853/soundl.png')
 
 Service.create(name: 'Nice Prod', 
                phone_number: '0405060708', 
