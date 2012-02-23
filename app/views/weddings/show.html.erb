@@ -8,21 +8,25 @@
 </script>
 <h1><%= "#{@wedding.bride_first_name} et #{@wedding.groom_first_name}" %></h1>
 <div id="wrapper">
-  <div id="left">
-    <div>
-    <ul class="services">
-      <% i = 0 %>
-      <% @wedding.service_types_weddings.each.with_index do |service_type_wedding| %>
-        <% if service_type_wedding.activated? %>
-          <li class="<%= i == 0 ? 'selected' : '' %>" data-service-type-id="<%= service_type_wedding.service_type.id %>">
-            <!--<%= image_tag service_type_wedding.service_type.image_url %> --><%= service_type_wedding.service_type.name %>
-          </li>
-          <% i += 1 %>
-        <%end%>
-      <% end %>
-    </ul>
+  <% if is_mobile? %>
+    <%= select("service", "service_type", @services.collect{|c| [c.service_type.name, c.service_type.id ]}) %>
+  <% else %>
+    <div id="left">
+      <div>
+      <ul class="services">
+        <% i = 0 %>
+        <% @wedding.service_types_weddings.each.with_index do |service_type_wedding| %>
+          <% if service_type_wedding.activated? %>
+            <li class="<%= i == 0 ? 'selected' : '' %>" data-service-type-id="<%= service_type_wedding.service_type.id %>">
+              <!--<%= image_tag service_type_wedding.service_type.image_url %> --><%= service_type_wedding.service_type.name %>
+            </li>
+            <% i += 1 %>
+          <%end%>
+        <% end %>
+      </ul>
+      </div>
     </div>
-  </div>
+  <% end %>
   <div id="content">
     <h2>Services pré-sélectionnés</h2>
     <ul class="activated_services">

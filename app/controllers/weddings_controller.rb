@@ -51,7 +51,8 @@ class WeddingsController < ApplicationController
     
     @activated_services = @wedding.activated_services(service_type_id)
     @disabled_services = @wedding.disabled_services(service_type_id)
-    
+
+    @services =  @wedding.service_types_weddings.find_all{|c| c.activated? } #seulement ceux qui sont activés
 
 #     @wedding.service_types_weddings.each do |service_types_wedding|
 # 
