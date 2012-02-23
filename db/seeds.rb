@@ -9,13 +9,11 @@ require File.dirname(__FILE__) + '/services_seed/caterer_seed.rb'
 require File.dirname(__FILE__) + '/services_seed/photographs_seed.rb'
 require File.dirname(__FILE__) + '/services_seed/animator_seed.rb'
 
-client    = Users::Client.create(username: 'client', password: 'password')
 organizer = Users::Organizer.create(username: 'organizer', password: 'password')
 wedding   = Wedding.create(budget:             4000, 
                            place:              "Nice", 
                            nb_person:          40, 
                            has_child:          false, 
-                           client:             client, 
                            organizer:          organizer,
                            bride_first_name:   'Alice',
                            bride_last_name:    'Liso',
@@ -32,13 +30,14 @@ wedding   = Wedding.create(budget:             4000,
                            desired_atmosphere: 'Petit commité',
                            wedding_photo:       'http://img705.imageshack.us/img705/2356/screenshot20120217at112.png')
                                  
+# groom     = Users::Client.create(username: 'groom@mail.com', password: 'password')
+# bride     = Users::Client.create(username: 'bride@mail.com', password: 'password')
+# wedding.clients << [groom, bride]
 
-client2    = Users::Client.create(username: 'client2', password: 'password')
 wedding2 = Wedding.create(budget:             4000, 
                           place:              "Nice", 
                           nb_person:          200, 
                           has_child:          true, 
-                          client:             client2,
                           organizer:          organizer,
                           bride_first_name:   'Julie',
                           bride_last_name:    'Dupont',
@@ -56,7 +55,10 @@ wedding2 = Wedding.create(budget:             4000,
                            service_types: [ServiceType.where(:name => 'Fleuristes').first,
                                            ServiceType.where(:name => 'Traiteurs').first,
                                            ServiceType.where(:name => 'Lieux').first])
-                                 
+# groom2 = Users::Client.create(username: 'groom2@mail.com', password: 'password')
+# bride2 = Users::Client.create(username: 'bride2@mail.com', password: 'password')
+# wedding.clients << [groom2, bride2]
+
 ServiceType.all.each do |service_type|
   if service_type.name == "Animations"
     wedding.service_types_weddings << ServiceTypesWedding.create(:service_type => service_type, :activated => false)

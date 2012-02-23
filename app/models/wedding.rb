@@ -3,13 +3,14 @@ class Wedding < ActiveRecord::Base
   has_many :services_weddings
   has_many :services, :through => :services_weddings
   
-  has_one :client, :class_name => "Users::Client"
+  has_many :clients, :class_name => "Users::Client"
   has_one :organizer, :class_name => "Users::Organizer"  
   
   has_many :service_types_weddings
   has_many :service_types, :through => :service_types_weddings
 
   before_create :add_services
+  before_create :create_client_account
     
   def services_by service_type
     if service_type.kind_of? Integer
@@ -83,5 +84,16 @@ class Wedding < ActiveRecord::Base
   
   def add_services
     self.services << Service.all
+  end
+
+  def create_client_account
+    if self.groom_email
+      bride = Users::Client.create(username: self.bride_email, password: 'password')
+      self.clients << bride
+    end
+    if self.groom_email
+      groom = Users::Client.create(username: self.groom_email, password: 'password')
+      self.clients << groom
+    end
   end
 end
