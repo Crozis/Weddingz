@@ -1,5 +1,5 @@
 class AddColumnToWeddings < ActiveRecord::Migration
   def change
-    add_column :weddings, :activated, :boolean, :default => false
+    add_column :weddings, :activated, :boolean
   end
 end
