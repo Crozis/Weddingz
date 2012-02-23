@@ -18,7 +18,8 @@ class Service < ActiveRecord::Base
       description:   self.description || '',
       price:         self.price || '',
       front_picture: self.front_picture || '',
-      pictures_url:  self.pictures_url.split(';') || ''
+      pictures_url:  self.pictures_url.split(';') || '',
+      price_form:    self.price_form || 0
     }
   end
 end

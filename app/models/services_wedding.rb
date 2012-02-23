@@ -30,7 +30,8 @@ class ServicesWedding < ActiveRecord::Base
       description:   self.service.description,
       price:         self.service.price,
       front_picture: self.service.front_picture,
-      pictures_url:  self.service.pictures_url.split(';')
+      pictures_url:  self.service.pictures_url.split(';'),
+      price_form:    self.service.price_form || 0
     }
   end
 
