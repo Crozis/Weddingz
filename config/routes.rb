@@ -11,9 +11,11 @@ Weddingz::Application.routes.draw do
   resources :services
 
   get 'weddings/activated'
+  match 'weddings/:id/activate_services/:service_ids' => 'weddings#activate_services'
+  match 'weddings/:id/disable_services/:service_ids'  => 'weddings#disable_services'
 
   resources :weddings do
-    get 'activate', :on => :member
+    get 'activate', :on => :member    
     resources :services do 
       put 'activate', :on => :member
       put 'disable', :on => :member
