@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120223105846) do
+ActiveRecord::Schema.define(:version => 20120223134126) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -110,11 +110,12 @@ ActiveRecord::Schema.define(:version => 20120223105846) do
     t.string   "wedding_photo"
     t.string   "groom_photo"
     t.string   "bride_photo"
-    t.integer  "religion"
+    t.string   "religion"
     t.string   "place_type"
     t.string   "desired_atmosphere"
     t.text     "note"
     t.boolean  "has_child"
+    t.date     "period"
   end
 
 end

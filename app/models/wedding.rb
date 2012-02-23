@@ -45,6 +45,7 @@ class Wedding < ActiveRecord::Base
       place:              self.place      || '',
       nb_person:          self.nb_person  || 0,
       has_child:          self.has_child  || false,
+      period:             self.period  || '',
 
       bride_first_name:   self.bride_first_name,
       bride_last_name:    self.bride_last_name,
