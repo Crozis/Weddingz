@@ -10,6 +10,7 @@ class ServiceTypesWedding < ActiveRecord::Base
     end
     
     {
+      id:        self.service_type.id,
       name:      self.service_type.name,
       image_url: self.service_type.image_url || '',
       icon_url:  self.service_type.icon_url || '',
