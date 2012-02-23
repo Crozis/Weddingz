@@ -87,30 +87,65 @@ $(document).ready(function() {
            }
         }); 
         refreshToggler();
-    })
-    refreshToggler();
-    refreshButton();
-    var sidePanel = $("#left ul");
-    var sidebarTop = sidePanel.offset().top;
-    var first = true;
-    $(document).scroll(function(evt) {
-        if (first) {
-            sidebarTop = sidePanel.offset().top;
-            first = false;
-        }
-        var wTop = $(window).scrollTop();
-        if (wTop > sidebarTop) {
-            sidePanel.css({
-                position: "fixed",
-                top: "0px"
-            });
-        } else {
-            sidePanel.css({
-                position: "static"
-            });
-        }
     });
     
+    
+  $('#service_service_type').change( function() {
+        
+        var service_type_id = $('#service_service_type').val();
+        var activated_template = Handlebars.compile($("#service_template").html());
+        var disabled_template = Handlebars.compile($("#service_template_disable").html());
+        $.ajax({
+           url      : '/weddings/' + wedding_id + '/services.json?service_type_id=' + service_type_id,
+           type     : 'get',
+           success  : function(result) {
+              $('#content .activated_services').empty();
+              $('#content .disabled_services').empty();
+              if(result.activated_services.length === 0) {
+                $('#content .activated_services').append("<li class=\"no_data\">Aucun service pré-séléctionné</li>");              
+              }
+              _.each(result.activated_services, function(service){
+                $('#content .activated_services').append(activated_template(service));
+              });
+              if(result.disabled_services.length === 0) {
+                $('#content .disabled_services').append("<li class=\"no_data\">Aucun service mis de de côté</li>");              
+              }
+              _.each(result.disabled_services, function(service){
+                $('#content .disabled_services').append(disabled_template(service));
+              });
+              refreshButton();
+              refreshToggler();
+              refreshSlideshow();
+           }
+        });
+  });
+
+
+    refreshToggler();
+    refreshButton();
+    if($("#mobile").length != 1) {
+      var sidePanel = $("#left ul");
+      var sidebarTop = sidePanel.offset().top;
+      var first = true;
+      $(document).scroll(function(evt) {
+          if (first) {
+              sidebarTop = sidePanel.offset().top;
+              first = false;
+          }
+          var wTop = $(window).scrollTop();
+          if (wTop > sidebarTop) {
+              sidePanel.css({
+                  position: "fixed",
+                  top: "0px"
+              });
+          } else {
+              sidePanel.css({
+                  position: "static"
+              });
+          }
+      });
+    }    
+    var mwith = $("#mobile").length != 1 ? 510 : 340 ; 
     var refreshSlideshow = function() {
          $('.slidesContainer').css('overflow', 'hidden');
             
@@ -122,7 +157,7 @@ $(document).ready(function() {
             	  	var tempsAttente = 6000;
             			
             		  var currentPosition = 0;
-            		  var slideWidth = 510;
+            		  var slideWidth = mwith;
             		  var slides = $(slideshow).find('.slide');
             		  var numberOfSlides = slides.length;
             		  var interval;

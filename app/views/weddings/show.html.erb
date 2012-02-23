@@ -9,7 +9,7 @@
 <h1><%= "#{@wedding.bride_first_name} et #{@wedding.groom_first_name}" %></h1>
 <div id="wrapper">
   <% if is_mobile? %>
-    <%= select("service", "service_type", @services_types_wedding.collect{|c| [c.service_type.name, c.service_type.id ]}) %>
+    <div id="select_div"><%= select("service", "service_type", @services_types_wedding.collect{|c| [c.service_type.name, c.service_type.id ]}) %></div>
   <% else %>
     <div id="left">
       <div>
@@ -178,7 +178,7 @@ $(document).ready(function(){
 	  	var tempsAttente = 6000;
 			
 		  var currentPosition = 0;
-		  var slideWidth = 610;
+		  var slideWidth = $("#mobile").length != 1 ? 510 : 340 ;
 		  var slides = $(slideshow).find('.slide');
 		  var numberOfSlides = slides.length;
 		  var interval;
@@ -241,6 +241,7 @@ $(document).ready(function(){
       	$(slideshow).find('.rightControl').click();
     	}
   });
+  
 
 });
 </script>
