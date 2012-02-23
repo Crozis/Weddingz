@@ -3,12 +3,20 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import 'base';
 
+#mobile #content{
+  h3 {
+    font-size: 1.6em;  
+    padding: 4px;
+    width: 60%;
+  }
+  
+}
 #content {
   h2 {
     padding: 0.5em;
     @include uniform_gradient(#333, #555);
     color: #EEE;
-    font-family: 'HelveticaNeueUltraLight';
+    font-family: Helvetica, 'HelveticaNeueUltraLight';
     text-shadow: 1px 1px 0 black;
     border-bottom: 1px solid #777;
     box-shadow: 0 1px 0 white, inset 0 1px 0 #777;
@@ -162,5 +170,16 @@
     font-size: 1.2em;
     text-align: center;
     margin-bottom: 1em;
+  }
+}
+
+#mobile #content .middle {
+  border-spacing: 10px;
+  > * {
+    display: block;
+  }
+  img {
+    float: left;
+    margin-right: 1em;
   }
 }

@@ -1,5 +1,9 @@
 <% content_for :css do %>
-  <%= stylesheet_link_tag 'login' %>
+  <% if is_mobile? %>
+    <%= stylesheet_link_tag 'login-mobile' %>  
+  <% else %>
+    <%= stylesheet_link_tag 'login' %>  
+  <% end %>
 <% end %>
 <div id="login_logo"><h1>Weddingz</h1></div>
 <div id="login_view" class="block">
