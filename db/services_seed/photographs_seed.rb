@@ -3,7 +3,7 @@
 ############################################################ FLORISTS ############################################################
 
 photographs_type = ServiceType.create(name: 'Photographes', 
-                                      image_url: 'http://www.photographe-mariage.biz/photos/4891.jpg',
+                                      image_url: 'http://img830.imageshack.us/img830/6538/photographe.png',
                                       icon_url: 'http://img811.imageshack.us/img811/6026/photocb.png')
 
 Service.create(name: 'David Bornais', 

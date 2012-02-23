@@ -1,7 +1,7 @@
 # Encoding: UTF-8
 
-accomodation_type   = ServiceType.create(name: 'Hébergements')
-decoration_type     = ServiceType.create(name: 'Décorations')
+accomodation_type   = ServiceType.create(name: 'Hébergements', image_url: 'http://img542.imageshack.us/img542/8813/hebergement.png', icon_url: 'http://img594.imageshack.us/img594/8813/hebergement.png')
+decoration_type     = ServiceType.create(name: 'Décorations', image_url: 'http://img37.imageshack.us/img37/5911/decorationk.png',icon_url: 'http://img857.imageshack.us/img857/1411/decoc.png')
 
 require File.dirname(__FILE__) + '/services_seed/florists_seed.rb'
 require File.dirname(__FILE__) + '/services_seed/places_seed.rb'
