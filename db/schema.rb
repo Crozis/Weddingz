@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(:version => 20120221201638) do
   create_table "service_types_weddings", :force => true do |t|
     t.integer "service_type_id"
     t.integer "wedding_id"
-    t.boolean "activated"
+    t.boolean "activated",       :default => false
   end
 
   create_table "services", :force => true do |t|
