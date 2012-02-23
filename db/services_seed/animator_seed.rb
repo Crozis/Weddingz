@@ -3,7 +3,7 @@
 ############################################################ FLORISTS ############################################################
 
 animator_type = ServiceType.create(name: 'Animations',
-                                   image_url: 'http://www.evenementielpourtous.com/upload/4619_3.jpg',
+                                   image_url: 'http://img403.imageshack.us/img403/8241/animationw.png',
                                    icon_url: 'http://img3.imageshack.us/img3/6853/soundl.png')
 
 Service.create(name: 'Nice Prod', 
