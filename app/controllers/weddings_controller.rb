@@ -42,12 +42,12 @@ class WeddingsController < ApplicationController
   def show
     @wedding = Wedding.find(params[:id])
 
-    service_type_id = params[:service_type_id] || @wedding.activated_services_types.first.id
+    @service_type_id = params[:service_type_id] || @wedding.service_types_weddings.first.id
     
-    @activated_services = @wedding.activated_services(service_type_id)
-    @disabled_services = @wedding.disabled_services(service_type_id)
+    @activated_services = @wedding.activated_services(@service_type_id)
+    @disabled_services = @wedding.disabled_services(@service_type_id)
 
-    @services =  @wedding.service_types_weddings.find_all{|c| c.activated? } #seulement ceux qui sont activés
+    @services_types_wedding =  @wedding.service_types_weddings.find_all{|c| c.activated? } # Only activated services types
 
     respond_to do |format|
       format.html # show.html.erb
