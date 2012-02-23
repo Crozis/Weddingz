@@ -1,5 +1,9 @@
 @import 'base';
 
+html, body {
+  height: 100%;
+}
+
 body {
   background-color: #333;
   background: image_url("cross_scratches.png");
@@ -19,7 +23,7 @@ body {
     //text-shadow: 1px 1px 0px #333;
     color: #c70000;
     font-family: Zapfino;
-    //font-weight: bold;
+    font-weight: bold;
     &:before {
       content: '';
       display: inline-block;
