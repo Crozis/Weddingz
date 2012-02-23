@@ -20,7 +20,7 @@ class ServicesWedding < ActiveRecord::Base
   
   def as_json(options)
     {
-      id:            self.id,
+      id:            self.service.id,
       activated:     self.activated,
       name:          self.service.name,
       phone_number:  self.service.phone_number,

@@ -2,7 +2,9 @@
 
 ############################################################ PLACES ############################################################
 
-place_type = ServiceType.create(name: 'Lieux')
+place_type = ServiceType.create(name: 'Lieux',
+                                image_url: 'http://img841.imageshack.us/img841/1889/imagelieux.png',
+                                icon_url: 'http://img717.imageshack.us/img717/3339/lieux.png')
 
 Service.create(name: 'Château Murakani', 
                phone_number: '0405060708', 

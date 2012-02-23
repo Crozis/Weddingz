@@ -2,7 +2,9 @@
 
 ############################################################ FLORISTS ############################################################
 
-florist_type = ServiceType.create(name: 'Fleuristes')
+florist_type = ServiceType.create(name: 'Fleuristes',
+                                  image_url: 'http://img3.imageshack.us/img3/2039/imagefleuristes.png',
+                                  icon_url: 'http://img210.imageshack.us/img210/1966/flowernz.png')
 
 Service.create(name: 'Fleuriste Ariston', 
                phone_number: '0405060708', 

@@ -2,7 +2,9 @@
 
 ############################################################ FLORISTS ############################################################
 
-caterer_type = ServiceType.create(name: 'Traiteurs')
+caterer_type = ServiceType.create(name: 'Traiteurs',
+                                  image_url: 'http://img268.imageshack.us/img268/5114/imagetraiteurs.png',
+                                  icon_url:'http://img27.imageshack.us/img27/3009/traiteurs.png')
 
 Service.create(name: 'LJ Traiteur', 
                phone_number: '0405060708', 

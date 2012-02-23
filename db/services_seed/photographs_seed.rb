@@ -2,7 +2,8 @@
 
 ############################################################ FLORISTS ############################################################
 
-photographs_type    = ServiceType.create(name: 'Photographes')
+photographs_type = ServiceType.create(name: 'Photographes', 
+                                      icon_url: 'http://img811.imageshack.us/img811/6026/photocb.png')
 
 Service.create(name: 'David Bornais', 
                phone_number: '0405060708', 

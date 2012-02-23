@@ -41,12 +41,7 @@ class WeddingsController < ApplicationController
   # GET /weddings/1.json
   def show
     @wedding = Wedding.find(params[:id])
-    if !current_user.nil? && current_user.is_client?
-      @wedding = current_user.wedding
-    end
-    @activated_services = []
-    @disabled_services = []
-    
+
     service_type_id = params[:service_type_id] || @wedding.activated_services_types.first.id
     
     @activated_services = @wedding.activated_services(service_type_id)
@@ -54,24 +49,6 @@ class WeddingsController < ApplicationController
 
     @services =  @wedding.service_types_weddings.find_all{|c| c.activated? } #seulement ceux qui sont activés
 
-#     @wedding.service_types_weddings.each do |service_types_wedding|
-# 
-#       if service_types_wedding.activated?
-# 
-#         service_type_id = ServiceTypesWedding.where(:wedding_id => @wedding.id, :service_type_id => service_types_wedding.service_type.id, :activated => true).first.service_type_id
-#         @activated_services = ServicesWedding.where(:wedding_id => @wedding.id, :activated => true)
-#         @activated_services = @activated_services.collect{|service_wedding| service_wedding.service}
-#         @activated_services = @activated_services.reject{|service| service.service_type.id != service_type_id.to_i}
-# 
-#         #.activated_services(@wedding.id, @wedding.service_types.first.id ) || [] # For first service_type
-#         @disabled_services  = ServicesWedding.where(:wedding_id => @wedding, :activated => false)
-#         @disabled_services = @disabled_services.collect{|service_wedding| service_wedding.service}
-#         @disabled_services = @disabled_services.reject{|service| service.service_type.id != service_type_id.to_i}
-# 
-#         #ServicesWedding.disabled_services(@wedding.id, @wedding.service_types.first.id) || []   # For first service_type          
-#         break
-#       end
-#    end
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @wedding }
