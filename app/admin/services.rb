@@ -19,7 +19,7 @@ ActiveAdmin.register Service do
       f.input :description
       f.input :phone_number
       f.input :address
-      f.input :front_picture
+      f.input :front_picture, :as => :string
       f.input :pictures_url, :label => 'Images (séparer les urls par une virgule)'.html_safe
     end
     f.buttons

@@ -75,7 +75,7 @@ class WeddingsController < ApplicationController
   # POST /weddings.json
   def create
     @wedding = Wedding.new(params[:wedding])
-    
+    params[:wedding][:service_type_ids] ||= []
     ServiceType.all.each do |service_type|
       @wedding.service_types_weddings << ServiceTypesWedding.create(:service_type_id => service_type.id, 
                                                                     :wedding_id      => @wedding.id,

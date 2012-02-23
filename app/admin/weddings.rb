@@ -43,48 +43,48 @@ ActiveAdmin.register Wedding do
     end
     f.buttons
   end
-  
-  show do
-    div :class => "panel" do
-      h3 "Wedding details"
-      div :class => "panel_contents" do
-        div :class => "attributes_table wedding" do
-          table do
-            tbody do  
-              tr do
-                th "Nom"
-                td wedding.budget
-              end
-              tr do
-                th "Budget"
-                td wedding.budget
-              end
-              tr do
-                th "Lieu"
-                td wedding.place
-              end
-              tr do
-                th "Nombre de personnes"
-                td wedding.nb_person
-              end
-              tr do
-                th "Avec enfants"
-                td wedding.has_child
-              end
-              tr do
-                th "Organizer"
-                td wedding.organizer.try(:username)
-              end
-              tr do
-                th "Client"
-                td wedding.client.try(:username)
-              end
-            end
-          end
-        end
-      end
-    end
-  end
+  # 
+#   show do
+#     div :class => "panel" do
+#       h3 "Wedding details"
+#       div :class => "panel_contents" do
+#         div :class => "attributes_table wedding" do
+#           table do
+#             tbody do  
+#               tr do
+#                 th "Nom"
+#                 td wedding.budget
+#               end
+#               tr do
+#                 th "Budget"
+#                 td wedding.budget
+#               end
+#               tr do
+#                 th "Lieu"
+#                 td wedding.place
+#               end
+#               tr do
+#                 th "Nombre de personnes"
+#                 td wedding.nb_person
+#               end
+#               tr do
+#                 th "Avec enfants"
+#                 td wedding.has_child
+#               end
+#               tr do
+#                 th "Organizer"
+#                 td wedding.organizer.try(:username)
+#               end
+#               tr do
+#                 th "Client"
+#                 td wedding.client.try(:username)
+#               end
+#             end
+#           end
+#         end
+#       end
+#     end
+#   end
   
   controller do
     def create
