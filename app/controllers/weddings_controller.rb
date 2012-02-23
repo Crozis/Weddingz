@@ -31,14 +31,22 @@ class WeddingsController < ApplicationController
       w = ServicesWedding.where(:wedding_id => params[:id], :service_id => service_id).first
       w.activated = true
       w.save
-    end    
+    end
+    respond_to do |format|
+      format.html {render :text => "success", :status => 'success'}
+      format.json {render :json => {status: "success"}, :status => 'success'}
+    end
   end
   def disable_services
     params[:service_ids].split(';').each do |service_id|
       w = ServicesWedding.where(:wedding_id => params[:id], :service_id => service_id).first
       w.activated = false
       w.save
-    end    
+    end
+    respond_to do |format|
+      format.html {render :text => "success", :status => 'success'}
+      format.json {render :json => {status: "success"}, :status => 'success'}
+    end
   end
   
   # GET /weddings
