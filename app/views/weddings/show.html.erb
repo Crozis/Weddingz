@@ -14,7 +14,7 @@
     <div id="left">
       <div>
       <ul class="services">
-        <% @services_types_wedding do |service_type_wedding| %>
+        <% @services_types_wedding.each do |service_type_wedding| %>
             <li class="<%= service_type_wedding.service_type.id == @service_type_id ? 'selected' : '' %>" data-service-type-id="<%= service_type_wedding.service_type.id %>">
               <div class="img"><%= image_tag service_type_wedding.service_type.icon_url %></div>
               <div class="text"><%= service_type_wedding.service_type.name %></div>
