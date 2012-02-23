@@ -24,13 +24,27 @@ $(document).ready(function() {
            success: function(response) {
                element.slideUp(function() {
                    if ($(button_element).attr('data-value') === "true") {
+                       $('ul.activated_services .no_data').remove();
                        $('ul.activated_services').prepend(element);
                        $(button_element).attr('data-value', "false");
-                       $(button_element).text('Mettre de côté')
+                       $(button_element).text('Mettre de côté');
+                       if ($('ul.activated_services li').length === 0) {
+                          $('#content .activated_services').append("<li class=\"no_data\">Aucun service pré-séléctionné</li>");  
+                       }
+                       if ($('ul.disabled_services li').length === 0) {
+                          $('#content .disabled_services').append("<li class=\"no_data\">Aucun service mis de côté</li>");  
+                       }
                    } else {
+                       $('ul.disabled_services .no_data').remove(); 
                        $('ul.disabled_services').prepend(element);
                        $(button_element).attr('data-value', "true");
-                       $(button_element).text('Activer')
+                       $(button_element).text('Activer');
+                       if ($('ul.disabled_services li').length === 0) {
+                          $('#content .disabled_services').append("<li class=\"no_data\">Aucun service mis de côté</li>");  
+                       }
+                       if ($('ul.activated_services li').length === 0) {
+                          $('#content .activated_services').append("<li class=\"no_data\">Aucun service pré-séléctionné</li>");  
+                       }
                    }
                    element.slideDown();
                });
