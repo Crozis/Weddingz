@@ -15,8 +15,8 @@ Weddingz::Application.routes.draw do
   resources :weddings do
     get 'activate', :on => :member
     resources :services do 
-      get 'activate', :on => :member
-      get 'disable', :on => :member
+      put 'activate', :on => :member
+      put 'disable', :on => :member
     end
   end
   

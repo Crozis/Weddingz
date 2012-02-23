@@ -9,20 +9,16 @@
 <h1><%= "#{@wedding.bride_first_name} et #{@wedding.groom_first_name}" %></h1>
 <div id="wrapper">
   <% if is_mobile? %>
-    <%= select("service", "service_type", @services.collect{|c| [c.service_type.name, c.service_type.id ]}) %>
+    <%= select("service", "service_type", @services_types_wedding.collect{|c| [c.service_type.name, c.service_type.id ]}) %>
   <% else %>
     <div id="left">
       <div>
       <ul class="services">
-        <% i = 0 %>
-        <% @wedding.service_types_weddings.each.with_index do |service_type_wedding| %>
-          <% if service_type_wedding.activated? %>
-            <li class="<%= i == 0 ? 'selected' : '' %>" data-service-type-id="<%= service_type_wedding.service_type.id %>">
+        <% @services_types_wedding do |service_type_wedding| %>
+            <li class="<%= service_type_wedding.service_type.id == @service_type_id ? 'selected' : '' %>" data-service-type-id="<%= service_type_wedding.service_type.id %>">
               <div class="img"><%= image_tag service_type_wedding.service_type.icon_url %></div>
               <div class="text"><%= service_type_wedding.service_type.name %></div>
             </li>
-            <% i += 1 %>
-          <%end%>
         <% end %>
       </ul>
       </div>
