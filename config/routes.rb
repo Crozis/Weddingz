@@ -9,18 +9,18 @@ Weddingz::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   resources :services
-
+  get '/weddings/activated'
+  
   resources :weddings do
     get 'activate', :on => :member    
     resources :services do 
       get 'activate', :on => :member
-      get 'disable', :on => :member
+      get 'disable' , :on => :member
     end
   end
 
-  get 'weddings/activated'
-  match 'weddings/:id/activate_services/:service_ids' => 'weddings#activate_services'
-  match 'weddings/:id/disable_services/:service_ids'  => 'weddings#disable_services'
+  match '/weddings/:id/activate_services/:service_ids' => 'weddings#activate_services'
+  match '/weddings/:id/disable_services/:service_ids'  => 'weddings#disable_services'
   
   devise_for :users#, :controllers => { :registrations => "users" }
 

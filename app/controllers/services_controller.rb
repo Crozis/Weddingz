@@ -7,7 +7,7 @@ class ServicesController < ApplicationController
     if(params[:wedding_id])
       @wedding = Wedding.find(params[:wedding_id])
     else
-      @wedding = Service.all
+      @wedding = Wedding.first # Service.all <= What the fuck was that?
     end
   end
   
