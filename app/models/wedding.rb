@@ -66,7 +66,9 @@ class Wedding < ActiveRecord::Base
       groom_photo:        self.groom_photo   || '',
       wedding_photo:      self.wedding_photo || '',
       
-      service_types:      self.service_types_weddings
+      service_types:      self.service_types_weddings,
+      
+      last_update:        self.updated_at
     } 
     
   end
