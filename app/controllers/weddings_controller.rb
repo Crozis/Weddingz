@@ -11,6 +11,10 @@ class WeddingsController < ApplicationController
     wedding = Wedding.find(params[:id])
     wedding.activated = true
     wedding.save
+    respond_to do |format|
+      format.json { render json: wedding}
+    end
+
   end
   
   def activated
