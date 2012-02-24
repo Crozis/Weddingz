@@ -14,7 +14,7 @@ $(document).ready(function() {
    var activate = function(button_element) {
        var element = $(button_element).parents('li');
        var service_id = element.attr('data-id');
-       if ($(button_element).attr('data-value')) {
+       if ($(button_element).attr('data-value') === "false") {
          var url = '/weddings/' + wedding_id + '/services/' + service_id + '/disable';
        } else {
          var url = '/weddings/' + wedding_id + '/services/' + service_id + '/activate';
