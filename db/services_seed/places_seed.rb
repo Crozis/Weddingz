@@ -14,7 +14,8 @@ Service.create(name: 'Château Murakani',
                service_type: place_type,
                summary: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
                description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.', 
-               price: '250€ la journée')
+               price: '250€ la journée',
+               price_form: 250)
 
 Service.create(name: 'Parc Phoenix', 
                phone_number: '0405060708', 
@@ -24,7 +25,8 @@ Service.create(name: 'Parc Phoenix',
                service_type: place_type, 
                 summary: 'Le Parc Phoenix, situé à l’entrée de Nice, s’étend sur 7 hectares. 2500 espèces de plantes, dont certaines réputées rares, sont préservées dans un décor de type méditerranéen. La serre tropicale de 7000m2 et de 25 m de haute est une des plus grandes d’Europe. Conçu comme un lieu de rencontre entre l’homme et la nature, il se compose d’une vingtaine de jardins à thèmes sonorisés.',
                description: 'Au gré de la visite du parc, le promeneur découvre : L’île des temps révolus (végétaux survivants depuis plus de 8 millions d’années), les jardins éthno-botaniques, la bambouseraie. Le tapis de fleurs odorantes, différentes selon la saison, flattent les sens par leurs couleurs et leurs senteurs. Des bancs appellent au repos le long de l’oued autour duquel un paysage de campagne a été reproduit. Le lac sur lequel évoluent les pélicans, les cygnes noirs et les canards, aux côtés des tortues, ainsi que les "cascades méditerranéennes" offrent un spectacle unique. La volière regroupe grand nombre d’espèces de rapaces et d’oiseaux exotiques. Quant à la serre, d’une haute technologie, elle met en scène 6 climats tropicaux différents. On y trouve une forêt de fougères arborescentes et une très vaste collection d’orchidées. La faune exotique est présente avec quelques spécimens d’insectes, de nombreuses espèces de mygales, et des aquariums avec des espèces très diversifiées de poissons. Les jardins de la serre Louisiane, la serre orchidées, la serre d’Afrique Australe traduisent la biodiversité et la richesse de la nature…', 
-               price: '2€ par personne')
+               price: '2€ par personne',
+               price_form: 2)
                
 Service.create(name: 'Plage privée Saint Jean', 
                phone_number: '0405060708', 
@@ -34,7 +36,8 @@ Service.create(name: 'Plage privée Saint Jean',
                service_type: place_type, 
                summary: 'La presqu’île de Saint-Jean-Cap-Ferrat, nichée entre Nice et Monaco, est l’un des endroits les plus prisés de la Côte d’Azur, et est un lieu idéal pour fêter le plus beau jour de sa vie',
                description: 'La presqu’île de Saint-Jean-Cap-Ferrat, nichée entre Nice et Monaco, est l’un des endroits les plus prisés de la Côte d’Azur. Elle abrite dans son écrin naturel la plage de Passable, une crique au décor de carte postale. Oasis de verdure, à l’abri du vent, Passable est baignée toute la journée par la lumière du soleil et jouit d’une vue imprenable sur la baie de Villefranche. Elle a su conserver un caractère sauvage trop souvent oublié sur les rivages surpeuplés de la cote d’Azur. Ici, le temps semble suspendu et le charme agit de jour comme de nuit', 
-               price: '200€ par jour, supplément de 100€ pour la soirée')
+               price: '200€ par jour, supplément de 100€ pour la soirée',
+               price_form: 200)
 
 Service.create(name: 'Eglise gothique de Pardu', 
                phone_number: '0405060708', 
@@ -44,5 +47,6 @@ Service.create(name: 'Eglise gothique de Pardu',
                service_type: place_type, 
                summary: 'Les Evêques de France, en novembre 2003, ont décidé que la préparation au mariage serait étalée sur toute une année. Du temps est donné aux couples pour faire un chemin d’approfondissement du sacrement qu’ils demandent mais aussi pour découvrir là où ils en sont dans leur cheminement de foi et de vie en Eglise. L\'Egilse gothique de Pardu accueille les fiancés pour un mariage mémorable',
                description: 'Les Evêques de France, en novembre 2003, ont décidé que la préparation au mariage serait étalée sur toute une année. Du temps est donné aux couples pour faire un chemin d’approfondissement du sacrement qu’ils demandent mais aussi pour découvrir là où ils en sont dans leur cheminement de foi et de vie en Eglise. Jésus, le Christ, par son Eglise, accueille le don mutuel, libre et définitif de l\'homme et de la femme qui se marient. Cet amour reçu est fidèle et fécond pour les conjoints, leurs enfants et toutes leurs relations', 
-               price: '200€ par jour, supplément de 100€ pour la soirée')
+               price: '300€ par jour, supplément de 100€ pour la soirée',
+               price_form: 300)
                
