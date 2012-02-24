@@ -52,7 +52,8 @@ wedding2 = Wedding.create(budget:             4000,
                           religion:           'Catholique',
                           place_type:         'Château',
                           desired_atmosphere: 'Festif',
-                           service_types: [ServiceType.where(:name => 'Fleuristes').first,
+                          wedding_photo:      'http://www.yahindnews.com/wp-content/uploads/2011/03/Cute-Couple-R.jpg',
+                          service_types: [ServiceType.where(:name => 'Fleuristes').first,
                                            ServiceType.where(:name => 'Traiteurs').first,
                                            ServiceType.where(:name => 'Lieux').first])
 # groom2 = Users::Client.create(username: 'groom2@mail.com', password: 'password')
