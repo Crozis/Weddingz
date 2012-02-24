@@ -28,12 +28,14 @@ wedding   = Wedding.create(budget:             4000,
                            religion:           'Catholique',
                            place_type:         'Plage',
                            desired_atmosphere: 'Petit commité',
-                           wedding_photo:       'http://img705.imageshack.us/img705/2356/screenshot20120217at112.png')
-                                 
-# groom     = Users::Client.create(username: 'groom@mail.com', password: 'password')
-# bride     = Users::Client.create(username: 'bride@mail.com', password: 'password')
-# wedding.clients << [groom, bride]
+                           wedding_photo:       'http://img705.imageshack.us/img705/2356/screenshot20120217at112.png',
+                          service_types: [ServiceType.where(:name => 'Fleuristes').first,
+                                           ServiceType.where(:name => 'Traiteurs').first,
+                                           ServiceType.where(:name => 'Lieux').first,
+                                           ServiceType.where(:name => 'Traiteurs').first,
+                                           ServiceType.where(:name => 'Photographes').first])
 
+                                 
 wedding2 = Wedding.create(budget:             4000, 
                           place:              "Nice", 
                           nb_person:          200, 
@@ -49,23 +51,37 @@ wedding2 = Wedding.create(budget:             4000,
                           groom_phone_number: '0610111213',
                           groom_email:        'paolo@gmail.com',
                             
-                          religion:           'Catholique',
-                          place_type:         'Château',
+                          religion:           '',
+                          place_type:         'Parc',
                           desired_atmosphere: 'Festif',
-                          wedding_photo:      'http://www.yahindnews.com/wp-content/uploads/2011/03/Cute-Couple-R.jpg',
+                          wedding_photo:      'http://www.gabrielletouchette.com/jpgs/couple-photography.jpg',
                           service_types: [ServiceType.where(:name => 'Fleuristes').first,
                                            ServiceType.where(:name => 'Traiteurs').first,
-                                           ServiceType.where(:name => 'Lieux').first])
-# groom2 = Users::Client.create(username: 'groom2@mail.com', password: 'password')
-# bride2 = Users::Client.create(username: 'bride2@mail.com', password: 'password')
-# wedding.clients << [groom2, bride2]
+                                           ServiceType.where(:name => 'Lieux').first,
+                                           ServiceType.where(:name => 'Traiteurs').first,
+                                           ServiceType.where(:name => 'Photographes').first])
 
-ServiceType.all.each do |service_type|
-  if service_type.name == "Animations"
-    wedding.service_types_weddings << ServiceTypesWedding.create(:service_type => service_type, :activated => false)
-    wedding2.service_types_weddings << ServiceTypesWedding.create(:service_type => service_type, :activated => false)
-  else
-    wedding.service_types_weddings << ServiceTypesWedding.create(:service_type => service_type, :activated => true)
-    wedding2.service_types_weddings << ServiceTypesWedding.create(:service_type => service_type, :activated => true)
-  end
-end
+wedding3 = Wedding.create(budget:             12000, 
+                          place:              "Cannes", 
+                          nb_person:          50, 
+                          has_child:          true, 
+                          organizer:          organizer,
+                          bride_first_name:   'Stéphanie',
+                          bride_last_name:    'De Monaco',
+                          bride_phone_number: '0607080910',
+                          bride_email:        'stephanie@gmail.com',
+                                            
+                          groom_first_name:   'Gabriel',
+                          groom_last_name:    'Garcia',
+                          groom_phone_number: '0610111213',
+                          groom_email:        'gabriel@gmail.com',
+                            
+                          religion:           '',
+                          place_type:         'Château',
+                          desired_atmosphere: 'Privé',
+                          wedding_photo:      'http://weddingpreparty.social.onewed.com/files/images/weddings/163866/couple/profile.jpg',
+                          service_types: [ServiceType.where(:name => 'Fleuristes').first,
+                                           ServiceType.where(:name => 'Traiteurs').first,
+                                           ServiceType.where(:name => 'Lieux').first,
+                                           ServiceType.where(:name => 'Traiteurs').first,
+                                           ServiceType.where(:name => 'Photographes').first])
