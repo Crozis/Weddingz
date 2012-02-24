@@ -85,3 +85,11 @@ wedding3 = Wedding.create(budget:             12000,
                                            ServiceType.where(:name => 'Lieux').first,
                                            ServiceType.where(:name => 'Traiteurs').first,
                                            ServiceType.where(:name => 'Photographes').first])
+
+# Activates all service types
+[wedding,wedding2,wedding3].each do |w|
+  w.service_types_weddings.each do |service_types_weddings|
+    service_types_weddings.activated = true
+    service_types_weddings.save
+  end
+end
