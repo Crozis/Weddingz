@@ -39,8 +39,12 @@ ActiveAdmin.register Wedding do
       f.input :bride_photo        , :label => "Photo de la mariée"
       f.input :groom_photo        , :label => "Photo du marié"
       f.input :wedding_photo      , :label => "Photo du mariage"
-
     end
+    
+    f.inputs "Type de Services" do
+      f.input :service_types, :as => :check_boxes
+    end
+    
     f.buttons
   end
   # 

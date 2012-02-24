@@ -33,8 +33,8 @@ class WeddingsController < ApplicationController
       w.save
     end
     respond_to do |format|
-      format.html {render :text => "success", :status => 'success'}
-      format.json {render :json => {status: "success"}, :status => 'success'}
+      format.html {render :text => "success"}
+      format.json {render :json => {status: "success"}}
     end
   end
   def disable_services
@@ -44,8 +44,8 @@ class WeddingsController < ApplicationController
       w.save
     end
     respond_to do |format|
-      format.html {render :text => "success", :status => 'success'}
-      format.json {render :json => {status: "success"}, :status => 'success'}
+      format.html {render :text => "success"}
+      format.json {render :json => {status: "success"}}
     end
   end
   
