@@ -14,12 +14,17 @@ $(document).ready(function() {
    var activate = function(button_element) {
        var element = $(button_element).parents('li');
        var service_id = element.attr('data-id');
+       if ($(button_element).attr('data-value')) {
+         var url = '/weddings/' + wedding_id + '/services/' + service_id + '/disable';
+       } else {
+         var url = '/weddings/' + wedding_id + '/services/' + service_id + '/activate';
+       }
+       
        $.ajax({
-           url : '/weddings/' + wedding_id + '/services/' + service_id + '/activate',
-           type: 'PUT',
+           url : url,
+           type: 'GET',
            data: {
                authenticity_token: $('meta[name="csrf-token"]').attr('content'),
-               activate          : $(button_element).attr('data-value')
            },
            success: function(response) {
                element.slideUp(function() {

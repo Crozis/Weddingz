@@ -68,7 +68,7 @@ class WeddingsController < ApplicationController
   def show
     @wedding = Wedding.find(params[:id])
 
-    @service_type_id = params[:service_type_id] || @wedding.service_types_weddings.first.id
+    @service_type_id = params[:service_type_id] || ServiceType.where(:name => "Fleuristes").first.id
     
     @activated_services = @wedding.activated_services(@service_type_id)
     @disabled_services = @wedding.disabled_services(@service_type_id)
