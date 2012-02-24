@@ -32,7 +32,7 @@ wedding   = Wedding.create(budget:             4000,
                           service_types: [ServiceType.where(:name => 'Fleuristes').first,
                                            ServiceType.where(:name => 'Traiteurs').first,
                                            ServiceType.where(:name => 'Lieux').first,
-                                           ServiceType.where(:name => 'Traiteurs').first,
+                                           ServiceType.where(:name => 'Animations').first,
                                            ServiceType.where(:name => 'Photographes').first])
 
                                  
@@ -58,7 +58,7 @@ wedding2 = Wedding.create(budget:             4000,
                           service_types: [ServiceType.where(:name => 'Fleuristes').first,
                                            ServiceType.where(:name => 'Traiteurs').first,
                                            ServiceType.where(:name => 'Lieux').first,
-                                           ServiceType.where(:name => 'Traiteurs').first,
+                                           ServiceType.where(:name => 'Animations').first,
                                            ServiceType.where(:name => 'Photographes').first])
 
 wedding3 = Wedding.create(budget:             12000, 
@@ -83,7 +83,7 @@ wedding3 = Wedding.create(budget:             12000,
                           service_types: [ServiceType.where(:name => 'Fleuristes').first,
                                            ServiceType.where(:name => 'Traiteurs').first,
                                            ServiceType.where(:name => 'Lieux').first,
-                                           ServiceType.where(:name => 'Traiteurs').first,
+                                           ServiceType.where(:name => 'Animations').first,
                                            ServiceType.where(:name => 'Photographes').first])
 
 # Activates all service types
