@@ -7,7 +7,7 @@ class ServicesController < ApplicationController
     if(params[:wedding_id])
       @wedding = Wedding.find(params[:wedding_id])
     else
-      @wedding = Service.all
+      @wedding = Wedding.first # Service.all <= What the fuck was that?
     end
   end
   
@@ -35,8 +35,8 @@ class ServicesController < ApplicationController
     service_wedding.activated = true
     service_wedding.save
     respond_to do |format|
-      format.html {render :nothing => true, :status => 'success'}
-      format.json {render :nothing => true, :status => 'success'}
+      format.html {render :text => "success"}
+      format.json {render :json => {status: "success"}}
     end
   end
 
@@ -45,8 +45,8 @@ class ServicesController < ApplicationController
     service_wedding.activated = false
     service_wedding.save
     respond_to do |format|
-      format.html {render :nothing => true, :status => 'success'}
-      format.json {render :nothing => true, :status => 'success'}
+      format.html {render :text => "success"}
+      format.json {render :json => {status: "success"}}
     end
   end
 

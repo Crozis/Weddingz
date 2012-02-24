@@ -1,6 +1,6 @@
 # encoding: utf-8
 class WeddingsController < ApplicationController
-  before_filter :authenticate_user!, :except => [:activate, :activated, :show, :index, :create, :update]
+  before_filter :authenticate_user!, :except => [:activate, :activated, :show, :index, :create, :update, :activate_services, :disable_services]
   
   def activate
     weddings = Wedding.all
@@ -11,6 +11,10 @@ class WeddingsController < ApplicationController
     wedding = Wedding.find(params[:id])
     wedding.activated = true
     wedding.save
+    respond_to do |format|
+      format.json { render json: wedding}
+    end
+
   end
   
   def activated
@@ -24,7 +28,29 @@ class WeddingsController < ApplicationController
         format.json { render :json => wedding }
       end
     end
-
+  end
+  
+  def activate_services
+    params[:service_ids].split(';').each do |service_id|
+      w = ServicesWedding.where(:wedding_id => params[:id], :service_id => service_id).first
+      w.activated = true
+      w.save
+    end
+    respond_to do |format|
+      format.html {render :text => "success"}
+      format.json {render :json => {status: "success"}}
+    end
+  end
+  def disable_services
+    params[:service_ids].split(';').each do |service_id|
+      w = ServicesWedding.where(:wedding_id => params[:id], :service_id => service_id).first
+      w.activated = false
+      w.save
+    end
+    respond_to do |format|
+      format.html {render :text => "success"}
+      format.json {render :json => {status: "success"}}
+    end
   end
   
   # GET /weddings
