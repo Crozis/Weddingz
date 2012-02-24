@@ -35,8 +35,8 @@ class ServicesController < ApplicationController
     service_wedding.activated = true
     service_wedding.save
     respond_to do |format|
-      format.html {render :text => "success", :status => 'success'}
-      format.json {render :json => {status: "success"}, :status => 'success'}
+      format.html {render :text => "success"}
+      format.json {render :json => {status: "success"}}
     end
   end
 
@@ -45,8 +45,8 @@ class ServicesController < ApplicationController
     service_wedding.activated = false
     service_wedding.save
     respond_to do |format|
-      format.html {render :text => "success", :status => 'success'}
-      format.json {render :json => {status: "success"}, :status => 'success'}
+      format.html {render :text => "success"}
+      format.json {render :json => {status: "success"}}
     end
   end
 
